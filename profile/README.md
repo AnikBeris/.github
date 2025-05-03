@@ -31,6 +31,7 @@
 ---
 
 <table>
+    
   <tr>
     <td>
       <a href="https://github.com/AnikBeris/Auto-Role-Channel-Bot-Discord">
@@ -43,6 +44,7 @@
       </a>
     </td>
   </tr>
+    
   <tr>
     <td>
       <a href="https://github.com/AnikBeris/automatic-calculation-of-HLOD-Unreal-Engine">
@@ -55,6 +57,7 @@
       </a>
     </td>
   </tr>
+    
   <tr>
     <td>
       <a href="https://github.com/AnikBeris/CI-CD-Unreal-Engine-5">
@@ -67,5 +70,19 @@
       </a>
     </td>
   </tr>
+    
+  <tr>
+    <td>
+      <a href="https://github.com/AnikBeris/self-signed-certificate">
+        <img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=self-signed-certificate&theme=tokyonight" />
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/AnikBeris/self-signed-certificate">
+        <img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=self-signed-certificate&theme=tokyonight" />
+      </a>
+    </td>
+  </tr>
+  
 </table>
 
