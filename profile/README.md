@@ -90,8 +90,14 @@
 ---
 # ***n8n***
 
+
 <table>
   <tr>
+    <td>
+      <a href="https://github.com/AnikBeris/n8n-with-VPN-3x-ui---Xray---VLESS_in_Docker">
+        <img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=n8n-with-VPN-3x-ui---Xray---VLESS_in_Docker&theme=tokyonight" />
+      </a>
+    </td>
     <td>
       <a href="https://github.com/AnikBeris/n8n-docker">
         <img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=n8n-docker&theme=tokyonight" />
