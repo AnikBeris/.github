@@ -45,6 +45,14 @@
     </td>
   </tr>
 
+  <tr>
+    <td>
+      <a href="https://github.com/AnikBeris/BotEpicGamesFreeAssets">
+        <img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=BotEpicGamesFreeAssets&theme=tokyonight" />
+      </a>
+    </td>
+  </tr>
+  
 </table>
 
 ---
