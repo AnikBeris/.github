@@ -1,10 +1,10 @@
-<div align="center">
-  <p style="padding:30px">
-    <img src="https://komarev.com/ghpvc/?username=AnikBeris&style=flat&color=green" alt=""/>
-  </p>
+<h1 align="center">
+  Hello There! <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="30px">
+</h1>
 
-  # Hello There! <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="30px">
-</div>
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=AnikBeris&style=flat&color=green" alt="profile views"/>
+</p>
 
 ---
 
@@ -48,11 +48,11 @@
   </a>
 </p>
 
-<div align="center">
+<p align="center">
   <a href="https://github.com/AnikBeris">
     <img src="https://github-profile-trophy.vercel.app/?username=AnikBeris&theme=onedark&column=4&margin-w=15&margin-h=15"/>
   </a>
-</div>
+</p>
 
 ---
 
