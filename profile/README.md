@@ -2,31 +2,47 @@
 
 ---
 
-## About me
-
-* Platform Engineer
-
-## 📊 <b>GitHub stats</b>:
-<br>
-<p align = "center">
-    <img src="https://github.com/AnikBeris/AnikBeris/blob/main/media/WRTs.png" height="250" />
-    <img src="https://github-readme-stats.vercel.app/api?username=AnikBeris&show_icons=true&count_private=true&hide_border=true&line_height=25" alt="AnikBeris">
-
+## 📊 <b>Stack</b>:
+<p align="lift">
+  <a href="https://github.com/AnikBeris">
+    <img src="https://img.shields.io/badge/Windows-black?style=for-the-badge&logo=Windows"/>
+    <img src="https://img.shields.io/badge/Linux-black?style=for-the-badge&logo=Linux"/>
+    <img src="https://img.shields.io/badge/Docker-black?style=for-the-badge&logo=Docker"/>
+  </a>
 </p>
-
 
 ---
 
+## 📊 <b>GitHub stats</b>:
+
+<p align="center">
+  <a href="https://github.com/AnikBeris">
+    <img src="https://github.com/AnikBeris/AnikBeris/blob/main/media/WRTs.png" height="250" />
+    <img src="http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=AnikBeris&theme=transparent"/>
+  </a>
+  <a href="https://github.com/AnikBeris">
+    <img src="https://github-readme-streak-stats.herokuapp.com/?user=AnikBeris&hide_border=true&card_width=338&theme=transparent"/>
+  </a>
+  <a href="https://github.com/AnikBeris">
+    <img src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=AnikBeris&theme=transparent"/>
+  </a>
+</p>
+
+---
 ## Languages and Tools:
-<!-- TODO-IST:START -->
-* [x] <code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/git/git.png"></code>
-* [x] <code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/python/python.png"></code>
-* [ ] <code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/ruby/ruby.png"></code>
-* [ ] <code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png"></code>
-* [ ] <code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/vue/vue.png"></code>
-* [x] <code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png"></code>
-* [x] <code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png"></code>
-<!-- TODO-IST:END -->
+
+<p align="center">
+  <a href="https://github.com/AnikBeris">
+    <img src="http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=AnikBeris&theme=transparent"/>
+  </a>
+  <a href="https://github.com/AnikBeris">
+    <img src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=AnikBeris&theme=transparent"/>
+  </a>
+   <a href="https://github.com/AnikBeris">
+    <img src="https://github-profile-trophy.vercel.app/?username=AnikBeris&theme=onedark&column=4&margin-w=45&margin-h=45"/>
+  </a>
+
+</p>
 
 ---
 # ***Discord***
@@ -148,3 +164,10 @@
 </table>
 
 ---
+
+ <div align="center">
+  
+ <p align="center"  style="padding:30px">
+
+  <img src="https://komarev.com/ghpvc/?username=AnikBeris&style=flat&color=blue" alt=""/>
+</div>
