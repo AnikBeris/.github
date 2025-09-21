@@ -66,6 +66,7 @@
   </tr>
   <tr>
     <td><a href="https://github.com/AnikBeris/BotEpicGamesFreeAssets"><img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=BotEpicGamesFreeAssets&theme=tokyonight"/></a></td>
+    <td><a href="https://github.com/AnikBeris/Automatic-execution-of-Discord-tasks"><img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=Automatic-execution-of-Discord-tasks&theme=tokyonight"/></a></td>
   </tr>
 </table>
 
