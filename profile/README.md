@@ -84,6 +84,9 @@
     <td><a href="https://github.com/AnikBeris/UE5-zen-server-docker"><img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=UE5-zen-server-docker&theme=tokyonight"/></a></td>
     <td><a href="https://github.com/AnikBeris/UE5-Achievements-Steam"><img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=UE5-Achievements-Steam&theme=tokyonight"/></a></td>
   </tr>
+  <tr>
+    <td><a href="https://github.com/AnikBeris/UE5-Epic-Games-Launcher"><img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=UE5-Epic-Games-Launcher&theme=tokyonight"/></a></td>
+  </tr>
 </table>
 
 ### 🔄 n8n
