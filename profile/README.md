@@ -112,3 +112,4 @@
     <td><a href="https://github.com/AnikBeris/DuckDNS-DSM-Synology/tree/main"><img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=DuckDNS-DSM-Synology&theme=tokyonight"/></a></td>
   </tr>
 </table>
+
