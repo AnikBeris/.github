@@ -24,11 +24,11 @@
     <td colspan="3" align="center"><h1> 📊 GitHub Stats </h1></td>
   </tr>
   <tr>
-    <td colspan="3" align="center">
-      <a href="https://github.com/AnikBeris" style="display: inline-block;">
+    <td colspan="3" align="center" style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+      <a href="https://github.com/AnikBeris">
         <img src="https://github.com/AnikBeris/AnikBeris/blob/main/media/WRTs.png" height="220" />
       </a>
-      <a href="https://github.com/AnikBeris" style="display: inline-block;">
+      <a href="https://github.com/AnikBeris">
         <img src="https://raw.githubusercontent.com/AnikBeris/.github/main/profile-summary-card-output/codeSTACKr/0-profile-details.svg" height="500" />
       </a>
     </td>
