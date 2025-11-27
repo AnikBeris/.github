@@ -24,18 +24,18 @@
     <td colspan="3" align="center"><h1> 📊 GitHub Stats </h1></td>
   </tr>
   <tr>
-    <td colspan="3" align="center" style="display: flex; white-space: nowrap; height: auto; max-height: 500px;">
+    <td colspan="3" align="center" style="display: flex; white-space: nowrap; height: auto;">
       <a href="https://github.com/AnikBeris">
-        <img src="https://github.com/AnikBeris/AnikBeris/blob/main/media/WRTs.png" />
+        <img src="https://github.com/AnikBeris/AnikBeris/blob/main/media/WRTs.png" height="220"/>
       </a>
       <a href="https://github.com/AnikBeris">
-        <img src="https://raw.githubusercontent.com/AnikBeris/.github/main/profile-summary-card-output/codeSTACKr/0-profile-details.svg" />
+        <img src="https://raw.githubusercontent.com/AnikBeris/.github/main/profile-summary-card-output/codeSTACKr/0-profile-details.svg" alt="0-profile-details" height="500"/>
       </a>
     </td>
   </tr>
   <tr>
-    <td align="center"><a href="https://github.com/AnikBeris"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/profile-summary-card-output/codeSTACKr/3-stats.svg"/></a></td>
-    <td align="center"><a href="https://git.io/streak-stats"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/profile-summary-card-output/codeSTACKr/4-productive-time.svg" alt="GitHub_Streak" /></a></td>
+    <td align="center"><a href="https://github.com/AnikBeris"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/profile-summary-card-output/codeSTACKr/3-stats.svg" alt="3-stats" /></a></td>
+    <td align="center"><a href="https://git.io/streak-stats"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/profile-summary-card-output/codeSTACKr/4-productive-time.svg" alt="productive-time" /></a></td>
   </tr>
   <tr>
     <td colspan="2" align="center"></td>
