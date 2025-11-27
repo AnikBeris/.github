@@ -26,10 +26,10 @@
   <tr>
     <td colspan="3" align="center" style="display: flex; justify-content: center; align-items: center; gap: 10px; height: auto; max-height: 500px;">
       <a href="https://github.com/AnikBeris">
-        <img src="https://github.com/AnikBeris/AnikBeris/blob/main/media/WRTs.png" height="220" />
+        <img src="https://github.com/AnikBeris/AnikBeris/blob/main/media/WRTs.png" />
       </a>
       <a href="https://github.com/AnikBeris">
-        <img src="https://raw.githubusercontent.com/AnikBeris/.github/main/profile-summary-card-output/codeSTACKr/0-profile-details.svg" height="500" />
+        <img src="https://raw.githubusercontent.com/AnikBeris/.github/main/profile-summary-card-output/codeSTACKr/0-profile-details.svg" />
       </a>
     </td>
   </tr>
