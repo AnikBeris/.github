@@ -20,14 +20,21 @@
 
 <h1 align="center"> 📊 GitHub Stats </h1>
 
+
+
+
+
+
+
+
 <table align="center">
   <tr>
     <td align="right"><a href="https://github.com/AnikBeris"><img src="https://github.com/AnikBeris/AnikBeris/blob/main/media/WRTs.png" height="220"/></a></td>
-    <td><a href="https://github.com/AnikBeris"><img src="http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=AnikBeris&theme=transparent"/></a></td>
+    <td><a href="https://github.com/AnikBeris"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/profile-summary-card-output/codeSTACKr/0-profile-details.svg" /></a></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://github.com/AnikBeris"><img src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=AnikBeris&theme=transparent"/></a></td>
-    <td align="center"><a href="https://git.io/streak-stats"><img src="https://github-readme-streak-stats.herokuapp.com?user=AnikBeris&locale=ru" alt="GitHub_Streak" /></a></td>
+    <td align="center"><a href="https://github.com/AnikBeris"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/profile-summary-card-output/codeSTACKr/3-stats.svg"/></a></td>
+    <td align="center"><a href="https://git.io/streak-stats"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/profile-summary-card-output/codeSTACKr/4-productive-time.svg" alt="GitHub_Streak" /></a></td>
   </tr>
   <tr>
     <td colspan="2" align="center"></td>
@@ -40,8 +47,8 @@
 
 <table align="center">
   <tr>
-    <td><a href="https://github.com/AnikBeris"><img src="http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=AnikBeris&theme=transparent"/></a></td>
-    <td><a href="https://github.com/AnikBeris"><img src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=AnikBeris&theme=transparent"/></a></td>
+    <td><a href="https://github.com/AnikBeris"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/profile-summary-card-output/codeSTACKr/1-repos-per-language.svg"/></a></td>
+    <td><a href="https://github.com/AnikBeris"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/profile-summary-card-output/codeSTACKr/2-most-commit-language.svg"/></a></td>
   </tr>
   <tr>
     <td colspan="2"><p align="center"><a href="https://github.com/AnikBeris">
