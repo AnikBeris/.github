@@ -24,7 +24,7 @@
     <td colspan="3" align="center"><h1> 📊 GitHub Stats </h1></td>
   </tr>
   <tr>
-    <td colspan="3" align="center" style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+    <td colspan="3" align="center" style="display: flex; justify-content: center; align-items: center; gap: 10px; height: auto; max-height: 500px;">
       <a href="https://github.com/AnikBeris">
         <img src="https://github.com/AnikBeris/AnikBeris/blob/main/media/WRTs.png" height="220" />
       </a>
