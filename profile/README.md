@@ -6,31 +6,27 @@
 
 ---
 
-<h1 align="center"> 📦 Stack </h1>
-
-<p align="center">
-  <a href="https://github.com/AnikBeris">
-    <img src="https://img.shields.io/badge/Windows-black?style=for-the-badge&logo=Windows"/>
-    <img src="https://img.shields.io/badge/Linux-black?style=for-the-badge&logo=Linux"/>
-    <img src="https://img.shields.io/badge/Docker-black?style=for-the-badge&logo=Docker"/>
-  </a>
-</p>
+<table align="center">
+  <tr>
+    <td colspan="3" align="center"><h1> 📦 Stack </h1></td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/AnikBeris"><img src="https://img.shields.io/badge/Windows-black?style=for-the-badge&logo=Windows"/></a></td>
+    <td><a href="https://github.com/AnikBeris"><img src="https://img.shields.io/badge/Linux-black?style=for-the-badge&logo=Linux"/></a></td>
+    <td><a href="https://github.com/AnikBeris"></a><img src="https://img.shields.io/badge/Docker-black?style=for-the-badge&logo=Docker"/></td>
+  </tr>
+</table>
 
 ---
 
-<h1 align="center"> 📊 GitHub Stats </h1>
-
-
-
-
-
-
-
-
 <table align="center">
   <tr>
-    <td align="right"><a href="https://github.com/AnikBeris"><img src="https://github.com/AnikBeris/AnikBeris/blob/main/media/WRTs.png" height="220"/></a></td>
-    <td><a href="https://github.com/AnikBeris"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/profile-summary-card-output/codeSTACKr/0-profile-details.svg" /></a></td>
+    <td colspan="3" align="center"><h1> 📊 GitHub Stats </h1></td>
+  </tr>
+  <tr>
+    <td colspan="3" align="center" >
+      <a href="https://github.com/AnikBeris"><img src="https://github.com/AnikBeris/AnikBeris/blob/main/media/WRTs.png" height="220"/><a href="https://github.com/AnikBeris"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/profile-summary-card-output/codeSTACKr/0-profile-details.svg" height="500"/></a>
+    </td>
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/AnikBeris"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/profile-summary-card-output/codeSTACKr/3-stats.svg"/></a></td>
@@ -45,7 +41,7 @@
 
 <h1 align="center"> 🛠️ Languages & Tools </h1>
 
-<table align="center">
+<table align="center" >
   <tr>
     <td><a href="https://github.com/AnikBeris"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/profile-summary-card-output/codeSTACKr/1-repos-per-language.svg"/></a></td>
     <td><a href="https://github.com/AnikBeris"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/profile-summary-card-output/codeSTACKr/2-most-commit-language.svg"/></a></td>
