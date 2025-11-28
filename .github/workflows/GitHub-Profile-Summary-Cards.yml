@@ -4,7 +4,7 @@ on:
   workflow_dispatch: # ручной запуск
 
   schedule:
-    - cron: '* */24 * * *'
+    - cron: '* */12 * * *'
 
 jobs:
   build:
