@@ -62,10 +62,9 @@
 
 <h1 align="center"> 📂 Pinned Projects </h1>
 
-
 <table align="center">
   <tr>
-    <td colspan="2"><h2 align="center"> 💬 Discord </h2></td>
+    <td colspan="2"><h1 align="center"> 💬 Discord </h1></td>
   </tr>
   <tr>
     <td><a href="https://github.com/AnikBeris/Auto-Role-Channel-Bot-Discord"><img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=Auto-Role-Channel-Bot-Discord&theme=tokyonight"/></a></td>
@@ -81,7 +80,7 @@
 
 <table align="center">
   <tr>
-    <td colspan="2"><h2 align="center"> 🎮 Unreal Engine </h2></td>
+    <td colspan="2"><h1 align="center"> 🎮 Unreal Engine </h21></td>
   </tr>
   <tr>
     <td><a href="https://github.com/AnikBeris/automatic-calculation-of-HLOD-Unreal-Engine"><img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=automatic-calculation-of-HLOD-Unreal-Engine&theme=tokyonight"/></a></td>
@@ -108,7 +107,7 @@
 
 <table align="center">
   <tr>
-    <td colspan="2"><h2 align="center"> 🔄 n8n </h2></td>
+    <td colspan="2"><h1 align="center"> 🔄 n8n </h1></td>
   </tr>
   <tr>
     <td><a href="https://github.com/AnikBeris/n8n-with-VPN-3x-ui---Xray---VLESS_in_Docker"><img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=n8n-with-VPN-3x-ui---Xray---VLESS_in_Docker&theme=tokyonight"/></a></td>
@@ -120,7 +119,7 @@
 
 <table align="center">
   <tr>
-    <td colspan="2"><h2 align="center"> ⚙️ 3X-UI </h2></td>
+    <td colspan="2"><h1 align="center"> ⚙️ 3X-UI </h1></td>
   </tr>
   <tr>
     <td><a href="https://github.com/AnikBeris/limitation-in-the-CPU-RAM-3X-UI/tree/main"><img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=limitation-in-the-CPU-RAM-3X-UI&theme=tokyonight"/></a></td>
@@ -132,7 +131,7 @@
 
 <table align="center">
   <tr>
-    <td colspan="2"><h2 align="center"> 🖥️ DSM Synology </h2></td>
+    <td colspan="2"><h1 align="center"> 🖥️ DSM Synology </h1></td>
   </tr>
   <tr>
     <td><a href="https://github.com/AnikBeris/DuckDNS-DSM-Synology/tree/main"><img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=DuckDNS-DSM-Synology&theme=tokyonight"/></a></td>
