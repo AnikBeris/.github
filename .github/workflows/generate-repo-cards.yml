@@ -3,7 +3,7 @@ name: Generate Repo Cards
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 */8 * * *'   # каждые 8 часов
+    - cron: '0 */24 * * *'   # каждые 24 часов
 
 jobs:
   generate:
