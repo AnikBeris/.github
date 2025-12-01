@@ -14,7 +14,7 @@ jobs:
       - name: Install jq
         run: sudo apt-get update -y && sudo apt-get install -y jq
 
-      - name: Generate cards — обрезка описания по строкам
+      - name: Generate cards — обрезка описания по словам
         run: |
           mkdir -p icons-template
 
@@ -40,8 +40,33 @@ jobs:
           )
 
           declare -A colors=(
-            ["Python"]="#3572A5" ["JavaScript"]="#f1e05a" ["TypeScript"]="#2b7489"
-            ["Go"]="#00ADD8" ["Rust"]="#dea584" ["C++"]="#f34b7d" ["HTML"]="#e34c26"
+            ["Unknown"]="#ff0000ff"
+            ["YAML"]="#fbff00ff"
+            ["YML"]="#fbff00ff"
+            ["Python"]="#3572A5"
+            ["JavaScript"]="#b6a522ff"
+            ["TypeScript"]="#2b7489"
+            ["Go"]="#00ADD8"
+            ["Rust"]="#dea584"
+            ["C++"]="#f34b7d"
+            ["C"]="#555555"
+            ["Java"]="#b07219"
+            ["C#"]="#178600"
+            ["PHP"]="#4F5D95"
+            ["HTML"]="#e34c26"
+            ["CSS"]="#563d7c"
+            ["Shell"]="#89e051"
+            ["Bash"]="#89e051"
+            ["Dockerfile"]="#1dd7f8ff"
+            ["Ruby"]="#701516"
+            ["Kotlin"]="#F18E33"
+            ["Swift"]="#ffac45"
+            ["R"]="#198CE7"
+            ["Scala"]="#c22d40"
+            ["Perl"]="#0298c3"
+            ["Lua"]="#000080"
+            ["Objective-C"]="#438eff"
+            ["VHDL"]="#adb2cb"
           )
 
           for repo in "${repos[@]}"; do
