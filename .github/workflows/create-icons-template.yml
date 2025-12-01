@@ -40,24 +40,24 @@ jobs:
           )
 
           declare -A colors=(
-            ["Unknown"]="#ff0000ff"
-            ["YAML"]="#fbff00ff"
-            ["YML"]="#fbff00ff"
-            ["Python"]="#3572A5"
-            ["JavaScript"]="#b6a522ff"
-            ["TypeScript"]="#2b7489"
-            ["Go"]="#00ADD8"
-            ["Rust"]="#dea584"
-            ["C++"]="#f34b7d"
-            ["C"]="#555555"
-            ["Java"]="#b07219"
+            ["Unknown"]="rgba(255, 0, 0, 1)"
+            ["YAML"]="rgba(251, 255, 0, 1)"
+            ["YML"]="rgba(251, 255, 0, 1)"
+            ["Python"]="rgba(53, 114, 165, 1)"
+            ["JavaScript"]="rgba(182, 165, 34, 1)"
+            ["TypeScript"]="rgba(43, 116, 137, 1)"
+            ["Go"]="rgba(0, 173, 216, 1)"
+            ["Rust"]="rgba(222, 165, 132, 1)"
+            ["C++"]="rgba(243, 75, 125, 1)"
+            ["C"]="rgba(85, 85, 85, 1)"
+            ["Java"]="rgba(176, 114, 25, 1)"
             ["C#"]="#178600"
             ["PHP"]="#4F5D95"
             ["HTML"]="#e34c26"
             ["CSS"]="#563d7c"
-            ["Shell"]="#89e051"
+            ["Shell"]="rgba(137, 224, 81, 1)"
             ["Bash"]="#89e051"
-            ["Dockerfile"]="#1dd7f8ff"
+            ["Dockerfile"]="#1dd7f8"
             ["Ruby"]="#701516"
             ["Kotlin"]="#F18E33"
             ["Swift"]="#ffac45"
@@ -68,6 +68,7 @@ jobs:
             ["Objective-C"]="#438eff"
             ["VHDL"]="#adb2cb"
           )
+
 
           for repo in "${repos[@]}"; do
             json=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
