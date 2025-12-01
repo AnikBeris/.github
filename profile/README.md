@@ -67,12 +67,12 @@
     <td colspan="2"><h1 align="center"> 💬 Discord </h1></td>
   </tr>
   <tr>
-    <td><a href="https://github.com/AnikBeris/Auto-Role-Channel-Bot-Discord"><img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=Auto-Role-Channel-Bot-Discord&theme=tokyonight"/></a></td>
-    <td><a href="https://github.com/AnikBeris/Auto-Discord-Cleaner"><img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=Auto-Discord-Cleaner&theme=tokyonight"/></a></td>
+    <td><a href="https://github.com/AnikBeris/Auto-Role-Channel-Bot-Discord"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/Auto-Role-Channel-Bot-Discord.svg"/></a></td>
+    <td><a href="https://github.com/AnikBeris/Auto-Discord-Cleaner"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/Auto-Discord-Cleaner.svg"/></a></td>
   </tr>
   <tr>
-    <td><a href="https://github.com/AnikBeris/BotEpicGamesFreeAssets"><img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=BotEpicGamesFreeAssets&theme=tokyonight"/></a></td>
-    <td><a href="https://github.com/AnikBeris/Automatic-execution-of-Discord-tasks"><img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=Automatic-execution-of-Discord-tasks&theme=tokyonight"/></a></td>
+    <td><a href="https://github.com/AnikBeris/BotEpicGamesFreeAssets"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/BotEpicGamesFreeAssets.svg"/></a></td>
+    <td><a href="https://github.com/AnikBeris/Automatic-execution-of-Discord-tasks"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/Automatic-execution-of-Discord-tasks.svg"/></a></td>
   </tr>
 </table>
 
@@ -83,23 +83,23 @@
     <td colspan="2"><h1 align="center"> 🎮 Unreal Engine </h21></td>
   </tr>
   <tr>
-    <td><a href="https://github.com/AnikBeris/automatic-calculation-of-HLOD-Unreal-Engine"><img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=automatic-calculation-of-HLOD-Unreal-Engine&theme=tokyonight"/></a></td>
-    <td><a href="https://github.com/AnikBeris/Landscape-Unreal-Engine"><img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=Landscape-Unreal-Engine&theme=tokyonight"/></a></td>
+    <td><a href="https://github.com/AnikBeris/automatic-calculation-of-HLOD-Unreal-Engine"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/automatic-calculation-of-HLOD-Unreal-Engine.svg"/></a></td>
+    <td><a href="https://github.com/AnikBeris/Landscape-Unreal-Engine"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/Landscape-Unreal-Engine.svg"/></a></td>
   </tr>
   <tr>
-    <td><a href="https://github.com/AnikBeris/CI-CD-Unreal-Engine-5"><img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=CI-CD-Unreal-Engine-5&theme=tokyonight"/></a></td>
-    <td><a href="https://github.com/AnikBeris/Unreal-Engine-Docker-Pixel-Streaming"><img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=Unreal-Engine-Docker-Pixel-Streaming&theme=tokyonight"/></a></td>
+    <td><a href="https://github.com/AnikBeris/CI-CD-Unreal-Engine-5"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/CI-CD-Unreal-Engine-5.svg"/></a></td>
+    <td><a href="https://github.com/AnikBeris/Unreal-Engine-Docker-Pixel-Streaming"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/Unreal-Engine-Docker-Pixel-Streaming.svg"/></a></td>
   </tr>
   <tr>
-    <td><a href="https://github.com/AnikBeris/UE5-zen-server-docker"><img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=UE5-zen-server-docker&theme=tokyonight"/></a></td>
-    <td><a href="https://github.com/AnikBeris/UE5-Achievements-Steam"><img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=UE5-Achievements-Steam&theme=tokyonight"/></a></td>
+    <td><a href="https://github.com/AnikBeris/UE5-zen-server-docker"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/UE5-zen-server-docker.svg"/></a></td>
+    <td><a href="https://github.com/AnikBeris/UE5-Achievements-Steam"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/UE5-Achievements-Steam.svg"/></a></td>
   </tr>
   <tr>
-    <td><a href="https://github.com/AnikBeris/UE5-Epic-Games-Launcher"><img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=UE5-Epic-Games-Launcher&theme=tokyonight"/></a></td>
-    <td><a href="https://github.com/AnikBeris/UE5-Templates"><img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=UE5-Templates&theme=tokyonight"/></a></td>
+    <td><a href="https://github.com/AnikBeris/UE5-Epic-Games-Launcher"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/UE5-Epic-Games-Launcher.svg"/></a></td>
+    <td><a href="https://github.com/AnikBeris/UE5-Templates"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/UE5-Templates.svg"/></a></td>
   </tr>
   <tr>
-    <td><a href="https://github.com/AnikBeris/UE-Widget-Development"><img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=UE-Widget-Development&theme=tokyonight"/></a></td>
+    <td><a href="https://github.com/AnikBeris/UE-Widget-Development"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/UE-Widget-Development.svg"/></a></td>
   </tr>
 </table>
 
@@ -110,8 +110,8 @@
     <td colspan="2"><h1 align="center"> 🔄 n8n </h1></td>
   </tr>
   <tr>
-    <td><a href="https://github.com/AnikBeris/n8n-with-VPN-3x-ui---Xray---VLESS_in_Docker"><img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=n8n-with-VPN-3x-ui---Xray---VLESS_in_Docker&theme=tokyonight"/></a></td>
-    <td><a href="https://github.com/AnikBeris/n8n-docker"><img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=n8n-docker&theme=tokyonight"/></a></td>
+    <td><a href="https://github.com/AnikBeris/n8n-with-VPN-3x-ui---Xray---VLESS_in_Docker"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/n8n-with-VPN-3x-ui---Xray---VLESS_in_Docker.svg"/></a></td>
+    <td><a href="https://github.com/AnikBeris/n8n-docker"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/n8n-docker.svg"/></a></td>
   </tr>
 </table>
 
@@ -122,8 +122,8 @@
     <td colspan="2"><h1 align="center"> ⚙️ 3X-UI </h1></td>
   </tr>
   <tr>
-    <td><a href="https://github.com/AnikBeris/limitation-in-the-CPU-RAM-3X-UI/tree/main"><img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=limitation-in-the-CPU-RAM-3X-UI&theme=tokyonight"/></a></td>
-    <td><a href="https://github.com/AnikBeris/self-signed-certificate"><img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=self-signed-certificate&theme=tokyonight"/></a></td>
+    <td><a href="https://github.com/AnikBeris/limitation-in-the-CPU-RAM-3X-UI/tree/main"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/limitation-in-the-CPU-RAM-3X-UI.svg"/></a></td>
+    <td><a href="https://github.com/AnikBeris/self-signed-certificate"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/self-signed-certificate.svg"/></a></td>
   </tr>
 </table>
 
@@ -134,7 +134,7 @@
     <td colspan="2"><h1 align="center"> 🖥️ DSM Synology </h1></td>
   </tr>
   <tr>
-    <td><a href="https://github.com/AnikBeris/DuckDNS-DSM-Synology/tree/main"><img src="https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=DuckDNS-DSM-Synology&theme=tokyonight"/></a></td>
+    <td><a href="https://github.com/AnikBeris/DuckDNS-DSM-Synology/tree/main"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/DuckDNS-DSM-Synology.svg"/></a></td>
   </tr>
 </table>
 
