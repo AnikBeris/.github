@@ -1,68 +1,124 @@
 name: Generate Repo Cards
 
 on:
-  workflow_dispatch:           # ручной запуск
+  workflow_dispatch:
   schedule:
-    - cron: '0 */24 * * *'      # каждые 24 часов
+    - cron: "0 */24 * * *"
 
 jobs:
   generate:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create cards directory
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      - name: Create output directory
         run: mkdir -p .github/profile/cards
 
       - name: Generate repo cards
         run: |
+          # Список репозиториев
           REPOS=(
             "Auto-Role-Channel-Bot-Discord"
             "UE-Widget-Development"
           )
-          
-          TEMPLATE='
-          <svg width="400" height="140" viewBox="0 0 400 140" xmlns="http://www.w3.org/2000/svg" style="border-radius:12px">
-          <rect width="400" height="140" fill="#0f0f0f" rx="12"/>
-          <text x="20" y="35" fill="#58a6ff" font-family="Segoe UI, sans-serif" font-size="20" font-weight="600">{NAME}</text>
-          <text x="20" y="65" fill="#8b949e" font-family="Segoe UI, sans-serif" font-size="14">{DESCRIPTION}</text>
-          <circle cx="25" cy="100" r="8" fill="{LANG_COLOR}"/>
-          <text x="40" y="105" fill="#ffffff" font-family="Segoe UI, sans-serif" font-size="14">{LANGUAGE}</text>
-          <text x="320" y="105" fill="#8b949e" font-family="Segoe UI, sans-serif" font-size="14" text-anchor="end">{STARS}</text>
-          <text x="305" y="105" fill="#8b949e" font-family="Segoe UI, sans-serif" font-size="14" text-anchor="end">⭐</text>
-          </svg>'
 
-          
-          for repo in "${repos[@]}"; do
-            echo "Получаем данные через GitHub API и генерируем карточку для $repo..."
-            DATA=$(curl -s "https://api.github.com/repos/AnikBeris/$repo" \
-              -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}")
+          # Базовый SVG шаблон
+          TEMPLATE='<svg width="400" height="140" viewBox="0 0 400 140" xmlns="http://www.w3.org/2000/svg" style="border-radius:12px">
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="{GRAD1}"/>
+      <stop offset="100%" stop-color="{GRAD2}"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="140" rx="12" fill="url(#grad)"/>
+  <text x="20" y="35" fill="#fff" font-family="Segoe UI, sans-serif" font-size="20" font-weight="600">{NAME}</text>
+  <text x="20" y="65" fill="#e5e5e5" font-family="Segoe UI, sans-serif" font-size="14">{DESCRIPTION}</text>
+  <circle cx="25" cy="100" r="8" fill="{LANG_COLOR}"/>
+  <text x="40" y="105" fill="#fff" font-family="Segoe UI, sans-serif" font-size="14">{LANGUAGE}</text>
+  <text x="320" y="105" fill="#fff" font-family="Segoe UI, sans-serif" font-size="14" text-anchor="end">{STARS}</text>
+  <text x="305" y="105" fill="#fff" font-family="Segoe UI, sans-serif" font-size="14" text-anchor="end">⭐</text>
+</svg>'
 
-            NAME=$(echo "$DATA" | jq -r .name)
-            DESCRIPTION=$(echo "$DATA" | jq -r .description | sed 's/&/\&amp;/g' | sed 's/</\&lt;/g' | sed 's/>/\&gt;/g')
-            LANGUAGE=$(echo "$DATA" | jq -r .language // "Unknown")
-            STARS=$(echo "$DATA" | jq -r .stargazers_count)
+          # Генерация карточек
+          for repo in "${REPOS[@]}"; do
+            echo "Generating card for $repo..."
 
-           
-            LANG_COLOR="#3572A5"  # Цвет языка
-            if [ "$LANGUAGE" = "JavaScript" ]; then LANG_COLOR="#f1e05a"; fi
-            if [ "$LANGUAGE" = "Unknown" ]; then LANG_COLOR="#666"; fi
+            DATA=$(curl -s \
+              -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+              "https://api.github.com/repos/AnikBeris/$repo"
+            )
 
-            echo "Заменяем плейхолдеры в шаблоне"
-            CARD=$(echo "$TEMPLATE" | sed "s/{NAME}/$NAME/g" | sed "s/{DESCRIPTION}/$DESCRIPTION/g" | sed "s/{LANGUAGE}/$LANGUAGE/g" | sed "s/{STARS}/$STARS/g" | sed "s/{LANG_COLOR}/$LANG_COLOR/g")
+            NAME=$(echo "$DATA" | jq -r '.name')
+            DESCRIPTION=$(echo "$DATA" | jq -r '.description // "No description available"' | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g')
+            LANGUAGE=$(echo "$DATA" | jq -r '.language // "Unknown"')
+            STARS=$(echo "$DATA" | jq -r '.stargazers_count')
 
-            echo "Сохраняем файл $CARD" > ".github/profile/cards/$repo-card.svg"
+            # Цвет языка
+            case "$LANGUAGE" in
+              JavaScript) LANG_COLOR="#f1e05a" ;;
+              Python) LANG_COLOR="#3572A5" ;;
+              C++) LANG_COLOR="#f34b7d" ;;
+              * ) LANG_COLOR="#666" ;;
+            esac
+
+            # Генерация случайного градиента
+            RAND1=$(printf '#%06X' $(( RANDOM * RANDOM )))
+            RAND2=$(printf '#%06X' $(( RANDOM * RANDOM )))
+
+            CARD=$(echo "$TEMPLATE" \
+              | sed "s/{NAME}/$NAME/g" \
+              | sed "s/{DESCRIPTION}/$DESCRIPTION/g" \
+              | sed "s/{LANGUAGE}/$LANGUAGE/g" \
+              | sed "s/{STARS}/$STARS/g" \
+              | sed "s/{LANG_COLOR}/$LANG_COLOR/g" \
+              | sed "s/{GRAD1}/$RAND1/g" \
+              | sed "s/{GRAD2}/$RAND2/g"
+            )
+
+            # Сохранение файла
+            echo "$CARD" > ".github/profile/cards/${repo}-card.svg"
           done
 
-      - name: Commit & Push cards
+      - name: Update README with cards
+        run: |
+          echo "Updating README..."
+
+          START="<!-- CARDS:START -->"
+          END="<!-- CARDS:END -->"
+
+          CARDS_HTML=""
+          for repo in .github/profile/cards/*.svg; do
+            NAME=$(basename "$repo")
+            CARDS_HTML+="<img src=\"$repo\" width=\"400\" style=\"margin:8px; border-radius:12px;\" />"$'\n'
+          done
+
+          # Обновляем README
+          awk -v start="$START" -v end="$END" -v content="$CARDS_HTML" '
+            BEGIN { inside=0 }
+            $0 ~ start { print $0; print content; inside=1; next }
+            $0 ~ end { inside=0 }
+            !inside { print $0 }
+          ' README.md > README.new.md
+
+          mv README.new.md README.md
+
+      - name: Commit & Push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .github/profile/cards/
-          git diff --quiet && git diff --staged --quiet || (
+
+          git add README.md .github/profile/cards/
+
+          if ! git diff --quiet --cached; then
             git commit -m "Update repo cards [auto]"
             git push
-          )
+          else
+            echo "No changes. Skipping commit."
+          fi
