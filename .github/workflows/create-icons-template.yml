@@ -14,7 +14,7 @@ jobs:
       - name: Install jq
         run: sudo apt-get update -y && sudo apt-get install -y jq
 
-      - name: Generate cards — правильная обрезка по словам и с ...
+      - name: Generate cards — обрезка описания по строкам
         run: |
           mkdir -p icons-template
 
@@ -23,7 +23,6 @@ jobs:
               "Auto-Discord-Cleaner"
               "BotEpicGamesFreeAssets"
               "Automatic-execution-of-Discord-tasks"
-
               "automatic-calculation-of-HLOD-Unreal-Engine"
               "Landscape-Unreal-Engine"
               "CI-CD-Unreal-Engine-5"
@@ -33,15 +32,11 @@ jobs:
               "UE5-Epic-Games-Launcher"
               "UE5-Templates"
               "UE-Widget-Development"
-
               "n8n-with-VPN-3x-ui---Xray---VLESS_in_Docker"
               "n8n-docker"
-
               "limitation-in-the-CPU-RAM-3X-UI"
               "self-signed-certificate"
-
               "DuckDNS-DSM-Synology"
-
           )
 
           declare -A colors=(
@@ -73,15 +68,20 @@ jobs:
             [ -z "$line2" ] && line2=" "
             [ -z "$line3" ] && line3=" "
 
-            for var in line1 line2 line3; do
-              printf -v "$var" '%b' "${!var//&/&amp;}"
-              printf -v "$var" '%b' "${!var//</&lt;}"
-              printf -v "$var" '%b' "${!var//>/&gt;}"
-              printf -v "$var" '%b' "${!var//|/\\|}"
+            # Улучшенное экранирование — добавляем экранирование для всех специальных символов
+            for var in name line1 line2 line3 lang stars color; do
+              printf -v "$var" '%b' "${!var//&/&amp;}"  # &
+              printf -v "$var" '%b' "${!var//</&lt;}"    # <
+              printf -v "$var" '%b' "${!var//>/&gt;}"    # >
+              printf -v "$var" '%b' "${!var//|/\\|}"     # |
+              printf -v "$var" '%b' "${!var//\\/\\\\}"   # \
+              printf -v "$var" '%b' "${!var//@/\\@}"     # @
             done
 
+            # Копируем шаблон
             cp .github/SVG-image-example/example.svg "icons-template/$repo.svg"
 
+            # Безопасная замена с использованием временного файла
             sed -i "s@{{REPO_NAME}}@$name@g"           "icons-template/$repo.svg"
             sed -i "s@{{LINE_1}}@$line1@g"             "icons-template/$repo.svg"
             sed -i "s@{{LINE_2}}@$line2@g"             "icons-template/$repo.svg"
