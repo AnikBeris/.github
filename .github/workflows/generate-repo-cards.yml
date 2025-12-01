@@ -16,51 +16,67 @@ jobs:
       - name: Install jq
         run: sudo apt-get update -y && sudo apt-get install -y jq
 
-      - name: Generate cards from template
+      - name: Generate cards from template (fixed)
         run: |
           mkdir -p .github/profile/cards
 
           repos=(
             "Auto-Role-Channel-Bot-Discord"
             "UE-Widget-Development"
-            # добавляй сюда сколько угодно
+            # добавляй сюда свои репо
           )
 
+          # Правильно закрытые кавычки!
           declare -A colors=(
-            [Python]="#3572A5" [JavaScript]="#f1e05a [TypeScript]="#2b7489"
-            [Go]="#00ADD8" [Rust]="#dea584" [C++]="#f34b7d" [HTML]="#e34c26"
+            ["Python"]="#3572A5"
+            ["JavaScript"]="#f1e05a"
+            ["TypeScript"]="#2b7489"
+            ["Go"]="#00ADD8"
+            ["Rust"]="#dea584"
+            ["C++"]="#f34b7d"
+            ["HTML"]="#e34c26"
+            ["CSS"]="#563d7c"
+            ["Shell"]="#89e051"
           )
 
           for repo in "${repos[@]}"; do
-            data=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            echo "Генерация карточки для $repo"
+
+            json=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
                         "https://api.github.com/repos/AnikBeris/$repo")
 
-            name=$(echo "$data" | jq -r .name)
-            desc=$(echo "$data" | jq -r '.description // "No description"')
-            lang=$(echo "$data" | jq -r '.language // "Unknown"')
-            stars=$(echo "$data" | jq -r .stargazers_count)
+            name=$(echo "$json" | jq -r '.name')
+            desc=$(echo "$json" | jq -r '.description // "No description"')
+            lang=$(echo "$json" | jq -r '.language // "Unknown"')
+            stars=$(echo "$json" | jq -r '.stargazers_count')
             color=${colors[$lang]:-"#666666"}
 
-            # 3 строки по ≤70 символов
-            line1=$(echo "$desc | cut -c1-70)
-            line2=$(echo "$desc" | cut -c71-140)
-            line3=$(echo "$desc" | cut -c141-210)
-            [ -z "$line2" ] && line2=" " && line3=" "
+            # Обрезаем описание до 3 строк по 70 символов
+            line1=$(echo -n "$desc" | cut -c1-70)
+            line2=$(echo -n "$desc" | cut -c71-140)
+            line3=$(echo -n "$desc" | cut -c141-210)
 
-            # Экранируем только амперсанды (остальное не ломается в SVG)
+            # Если строка пустая — ставим неразрывный пробел, чтобы высота не прыгала
+            [[ -z "$line1" ]] && line1=" "
+            [[ -z "$line2" ]] && line2=" "
+            [[ -z "$line3" ]] && line3=" "
+
+            # Экранируем только &
             line1=${line1//&/&amp;}
             line2=${line2//&/&amp;}
             line3=${line3//&/&amp;}
 
-            # Читаем шаблон и заменяем плейсхолдеры
+            # Копируем шаблон
             cp .github/profile/template-repo-card.svg ".github/profile/cards/$repo.svg"
-            sed -i "s/{{REPO_NAME}}/$name/g"              ".github/profile/cards/$repo.svg"
-            sed -i "s/{{LINE_1}}/$line1/g"                ".github/profile/cards/$repo.svg"
-            sed -i "s/{{LINE_2}}/$line2/g"                ".github/profile/cards/$repo.svg"
-            sed -i "s/{{LINE_3}}/$line3/g"                ".github/profile/cards/$repo.svg"
-            sed -i "s/{{LANGUAGE}}/$lang/g"               ".github/profile/cards/$repo.svg"
-            sed -i "s/{{STARS}}/$stars/g"                 ".github/profile/cards/$repo.svg"
-            sed -i "s/{{LANG_COLOR}}/$color/g"            ".github/profile/cards/$repo.svg"
+
+            # Используем другой разделитель в sed (чтобы # и / не ломали)
+            sed -i "s|{{REPO_NAME}}|$name|g"                ".github/profile/cards/$repo.svg"
+            sed -i "s|{{LINE_1}}|$line1|g"                  ".github/profile/cards/$repo.svg"
+            sed -i "s|{{LINE_2}}|$line2|g"                  ".github/profile/cards/$repo.svg"
+            sed -i "s|{{LINE_3}}|$line3|g"                  ".github/profile/cards/$repo.svg"
+            sed -i "s|{{LANGUAGE}}|$lang|g"                 ".github/profile/cards/$repo.svg"
+            sed -i "s|{{STARS}}|$stars|g"                   ".github/profile/cards/$repo.svg"
+            sed -i "s|{{LANG_COLOR}}|$color|g"             ".github/profile/cards/$repo.svg"
           done
 
       - name: Commit & push
