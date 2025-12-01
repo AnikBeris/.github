@@ -1,179 +1,82 @@
 name: Generate Repo Cards
 
-# нужно права на запись в contents для push
-permissions:
-  contents: write
-
 on:
   workflow_dispatch:
   schedule:
-    # выполнять раз в день в 00:00 UTC
-    - cron: "0 0 * * *"
+    - cron: '0 0 * * *'  # каждые 24 часа
 
 jobs:
   generate:
     runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      GITHUB_OWNER: AnikBeris   # <-- поменяй на свой логин, если нужно
 
     steps:
-      - name: Checkout repository
+
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install dependencies
-        run: |
-          sudo apt-get update -y
-          sudo apt-get install -y jq
-
-      - name: Create output directory
+      - name: Create cards directory
         run: mkdir -p .github/profile/cards
 
       - name: Generate repo cards
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_OWNER: ${{ github.repository_owner }}
         run: |
-          set -euo pipefail
-
-          # если хочешь автоматически брать все публичные репозитории, оставь REPOS пустой и
-          # раскомментируй блок ниже. Сейчас — ручной список.
           REPOS=(
             "Auto-Role-Channel-Bot-Discord"
             "UE-Widget-Development"
           )
 
-          # Пример автоматического получения всех репов (раскомментируй, если нужно):
-          # if [ "${#REPOS[@]}" -eq 0 ]; then
-          #   REPOS=( $(curl -s -H "Authorization: token $GITHUB_TOKEN" "https://api.github.com/users/$GITHUB_OWNER/repos?per_page=100" | jq -r '.[].name') )
-          # fi
+          for REPO in "${REPOS[@]}"; do
+            DATA=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
+                      "https://api.github.com/repos/$GITHUB_OWNER/$REPO")
 
-          TEMPLATE='<svg width="400" height="140" viewBox="0 0 400 140" xmlns="http://www.w3.org/2000/svg" style="border-radius:12px">
-  <defs>
-    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="{GRAD1}"/>
-      <stop offset="100%" stop-color="{GRAD2}"/>
-    </linearGradient>
-  </defs>
-  <rect width="400" height="140" rx="12" fill="url(#grad)"/>
-  <text x="20" y="35" fill="#ffffff" font-family="Segoe UI, sans-serif" font-size="20" font-weight="600">{NAME}</text>
-  <text x="20" y="65" fill="#e6e6e6" font-family="Segoe UI, sans-serif" font-size="14">{DESCRIPTION}</text>
-  <circle cx="25" cy="100" r="8" fill="{LANG_COLOR}"/>
-  <text x="40" y="105" fill="#ffffff" font-family="Segoe UI, sans-serif" font-size="14">{LANGUAGE}</text>
-  <text x="320" y="105" fill="#ffffff" font-family="Segoe UI, sans-serif" font-size="14" text-anchor="end">{STARS}</text>
-  <text x="305" y="105" fill="#ffffff" font-family="Segoe UI, sans-serif" font-size="14" text-anchor="end">⭐</text>
-</svg>'
+            NAME=$(echo "$DATA" | jq -r '.name')
+            DESCRIPTION=$(echo "$DATA" | jq -r '.description // ""')
+            LANGUAGE=$(echo "$DATA" | jq -r '.language // "Unknown"')
+            STARS=$(echo "$DATA" | jq -r '.stargazers_count')
 
-          # набор готовых цветов для градиентов (детерминированно и безопасно)
-          COLORS=( "#0f172a" "#001219" "#002B36" "#0b3d91" "#6b46c1" "#ff7b00" "#ff4d6d" "#00a896" "#0077b6" "#8b5cf6" "#ef4444" "#f59e0b" "#10b981" "#94a3b8" )
-
-          for repo in "${REPOS[@]}"; do
-            echo "==> Generating card for $repo"
-
-            # Получаем данные репозитория
-            DATA=$(curl -s -H "Authorization: token $GITHUB_TOKEN" "https://api.github.com/repos/$GITHUB_OWNER/$repo")
-            # Если репо не найден, пропускаем
-            if echo "$DATA" | jq -e 'has("message") and .message=="Not Found"' >/dev/null 2>&1; then
-              echo "  Repo $repo not found — skipping."
-              continue
+            if [ -z "$DESCRIPTION" ] || [ "$DESCRIPTION" = "null" ]; then
+              DESCRIPTION="No description"
             fi
 
-            NAME=$(echo "$DATA" | jq -r '.name // empty')
-            DESCRIPTION=$(echo "$DATA" | jq -r '.description // "No description available"' | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g')
-            LANGUAGE=$(echo "$DATA" | jq -r '.language // "Unknown"')
-            STARS=$(echo "$DATA" | jq -r '.stargazers_count // 0')
-
-            # Цвет по языку (простая таблица)
-            LANG_COLOR="#666666"
             case "$LANGUAGE" in
-              JavaScript) LANG_COLOR="#f1e05a" ;;
-              TypeScript) LANG_COLOR="#2b7489" ;;
-              Python) LANG_COLOR="#3572A5" ;;
-              HTML) LANG_COLOR="#e34c26" ;;
-              CSS) LANG_COLOR="#563d7c" ;;
-              Go) LANG_COLOR="#00ADD8" ;;
-              Rust) LANG_COLOR="#DEA584" ;;
-              C++) LANG_COLOR="#f34b7d" ;;
-              Shell) LANG_COLOR="#89e051" ;;
+              "JavaScript") LANG_COLOR="#f1e05a" ;;
+              "C++") LANG_COLOR="#f34b7d" ;;
+              "C#") LANG_COLOR="#178600" ;;
+              "Python") LANG_COLOR="#3572A5" ;;
+              "Unknown") LANG_COLOR="#666666" ;;
+              *) LANG_COLOR="#ffffff" ;;
             esac
 
-            # Пара случайных цветов из списка для градиента
-            IDX1=$(( RANDOM % ${#COLORS[@]} ))
-            IDX2=$(( RANDOM % ${#COLORS[@]} ))
-            # если совпали индексы — смещаем второй
-            if [ "$IDX1" -eq "$IDX2" ]; then
-              IDX2=$(( (IDX2 + 3) % ${#COLORS[@]} ))
-            fi
-            GRAD1=${COLORS[$IDX1]}
-            GRAD2=${COLORS[$IDX2]}
+            OUTPUT=".github/profile/cards/${REPO}.svg"
 
-            # Заполняем шаблон
-            CARD=$(printf "%s" "$TEMPLATE" \
-              | sed "s/{NAME}/$(echo "$NAME" | sed 's/[&/]/\\&/g')/g" \
-              | sed "s/{DESCRIPTION}/$(echo "$DESCRIPTION" | sed 's/[&/]/\\&/g')/g" \
-              | sed "s/{LANGUAGE}/$(echo "$LANGUAGE" | sed 's/[&/]/\\&/g')/g" \
-              | sed "s/{STARS}/$STARS/g" \
-              | sed "s/{LANG_COLOR}/$LANG_COLOR/g" \
-              | sed "s/{GRAD1}/$GRAD1/g" \
-              | sed "s/{GRAD2}/$GRAD2/g"
-            )
-
-            # Сохраняем SVG (без лишних сообщений)
-            outfile=".github/profile/cards/${repo}-card.svg"
-            printf "%s\n" "$CARD" > "$outfile"
-            echo "  Saved $outfile"
-          done
-
-      - name: Update README with cards
-        run: |
-          set -euo pipefail
-          START="<!-- CARDS:START -->"
-          END="<!-- CARDS:END -->"
-
-          # Собираем HTML-блок с изображениями
-          CARDS_HTML=""
-          for f in .github/profile/cards/*.svg; do
-            [ -e "$f" ] || continue
-            CARDS_HTML+='<img src="'"$f"'" width="400" style="margin:8px; border-radius:12px;" />'$'\n'
-          done
-
-          if [ -z "$CARDS_HTML" ]; then
-            echo "No cards generated — skipping README update."
-            exit 0
-          fi
-
-          # Если README.md не содержит маркеры, добавим их в конце
-          if ! grep -q "$START" README.md 2>/dev/null || ! grep -q "$END" README.md 2>/dev/null; then
-            echo "Adding cards section markers to README.md"
-            cat >> README.md <<'EOF'
-
-<!-- CARDS:START -->
-<!-- CARDS:END -->
+            cat > "$OUTPUT" <<EOF
+<svg width="400" height="140" viewBox="0 0 400 140" xmlns="http://www.w3.org/2000/svg" style="border-radius:12px">
+  <rect width="400" height="140" fill="#0f0f0f" rx="12"/>
+  <text x="20" y="35" fill="#58a6ff" font-family="Segoe UI, sans-serif" font-size="20" font-weight="600">${NAME}</text>
+  <text x="20" y="65" fill="#8b949e" font-family="Segoe UI, sans-serif" font-size="14">${DESCRIPTION}</text>
+  <circle cx="25" cy="100" r="8" fill="${LANG_COLOR}"/>
+  <text x="40" y="105" fill="#ffffff" font-family="Segoe UI, sans-serif" font-size="14">${LANGUAGE}</text>
+  <text x="320" y="105" fill="#8b949e" font-family="Segoe UI, sans-serif" font-size="14" text-anchor="end">${STARS}</text>
+  <text x="305" y="105" fill="#8b949e" font-family="Segoe UI, sans-serif" font-size="14" text-anchor="end">⭐</text>
+</svg>
 EOF
-          fi
 
-          # Заменяем блок между маркерами
-          awk -v start="$START" -v end="$END" -v content="$CARDS_HTML" '
-            BEGIN { inside=0 }
-            $0 ~ start { print $0; print content; inside=1; next }
-            $0 ~ end { inside=0; print $0; next }
-            !inside { print $0 }
-          ' README.md > README.new.md
-
-          mv README.new.md README.md
-          echo "README updated."
+            echo "Generated: $OUTPUT"
+          done
 
       - name: Commit & Push changes
         run: |
-          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add README.md .github/profile/cards/
+          git add .github/profile/cards/
 
-          # если есть staged изменения — коммитим и пушим
           if ! git diff --quiet --cached; then
             git commit -m "Update repo cards [auto]"
-            # push через стандартный origin (actions/checkout предоставляет токен)
             git push
           else
             echo "No changes. Skipping commit."
