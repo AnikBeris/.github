@@ -1,60 +1,68 @@
 name: Generate Repo Cards
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:           # ручной запуск
   schedule:
-    - cron: '0 */24 * * *'
+    - cron: '0 */24 * * *'      # каждые 24 часов
 
 jobs:
   generate:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install jq
-        run: sudo apt-get update && sudo apt-get install -y jq
+      - name: Create cards directory
+        run: mkdir -p .github/profile/cards
 
       - name: Generate repo cards
         run: |
-          mkdir -p .github/profile/cards
-          
-          repos=(
+          REPOS=(
             "Auto-Role-Channel-Bot-Discord"
             "UE-Widget-Development"
           )
+          
+          TEMPLATE='
+          <svg width="400" height="140" viewBox="0 0 400 140" xmlns="http://www.w3.org/2000/svg" style="border-radius:12px">
+          <rect width="400" height="140" fill="#0f0f0f" rx="12"/>
+          <text x="20" y="35" fill="#58a6ff" font-family="Segoe UI, sans-serif" font-size="20" font-weight="600">{NAME}</text>
+          <text x="20" y="65" fill="#8b949e" font-family="Segoe UI, sans-serif" font-size="14">{DESCRIPTION}</text>
+          <circle cx="25" cy="100" r="8" fill="{LANG_COLOR}"/>
+          <text x="40" y="105" fill="#ffffff" font-family="Segoe UI, sans-serif" font-size="14">{LANGUAGE}</text>
+          <text x="320" y="105" fill="#8b949e" font-family="Segoe UI, sans-serif" font-size="14" text-anchor="end">{STARS}</text>
+          <text x="305" y="105" fill="#8b949e" font-family="Segoe UI, sans-serif" font-size="14" text-anchor="end">⭐</text>
+          </svg>'
 
+          
           for repo in "${repos[@]}"; do
-            json=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-                        "https://api.github.com/repos/AnikBeris/$repo")
-            
-            name=$(echo "$json" | jq -r '.name')
-            description=$(echo "$json" | jq -r '.description // "No description"' | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g')
-            language=$(echo "$json" | jq -r '.language // "Unknown"')
-            stars=$(echo "$json" | jq -r '.stargazers_count')
-            
-            [[ "$language" == "Python" ]]      && color="#3572A5"
-            [[ "$language" == "JavaScript" ]]  && color="#f1e05a"
-            [[ "$language" == "TypeScript" ]]  && color="#2b7489"
-            [[ -z "$color" ]]                  && color="#666666"
+            echo "Получаем данные через GitHub API и генерируем карточку для $repo..."
+            DATA=$(curl -s "https://api.github.com/repos/AnikBeris/$repo" \
+              -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}")
 
-            cat > ".github/profile/cards/$repo-card.svg" <<EOF
-<svg width="400" height="140" viewBox="0 0 400 140" xmlns="http://www.w3.org/2000/svg">
-  <rect width="400" height="140" rx="12" fill="#0f0f0f"/>
-  <text x="20" y="35" fill="#58a6ff" font-family="Segoe UI, sans-serif" font-size="20" font-weight="600">$name</text>
-  <text x="20" y="65" fill="#8b949e" font-family="Segoe UI, sans-serif" font-size="14">$description</text>
-  <circle cx="25" cy="100" r="8" fill="$color"/>
-  <text x="40" y="105" fill="#ffffff" font-family="Segoe UI, sans-serif" font-size="14">$language</text>
-  <text x="305" y="105" fill="#8b949e" font-family="Segoe UI, sans-serif" font-size="14">⭐</text>
-  <text x="320" y="105" fill="#8b949e" font-family="Segoe UI, sans-serif" font-size="14" text-anchor="end">$stars</text>
-</svg>
-EOF
+            NAME=$(echo "$DATA" | jq -r .name)
+            DESCRIPTION=$(echo "$DATA" | jq -r .description | sed 's/&/\&amp;/g' | sed 's/</\&lt;/g' | sed 's/>/\&gt;/g')
+            LANGUAGE=$(echo "$DATA" | jq -r .language // "Unknown")
+            STARS=$(echo "$DATA" | jq -r .stargazers_count)
+
+           
+            LANG_COLOR="#3572A5"  # Цвет языка
+            if [ "$LANGUAGE" = "JavaScript" ]; then LANG_COLOR="#f1e05a"; fi
+            if [ "$LANGUAGE" = "Unknown" ]; then LANG_COLOR="#666"; fi
+
+            echo "Заменяем плейхолдеры в шаблоне"
+            CARD=$(echo "$TEMPLATE" | sed "s/{NAME}/$NAME/g" | sed "s/{DESCRIPTION}/$DESCRIPTION/g" | sed "s/{LANGUAGE}/$LANGUAGE/g" | sed "s/{STARS}/$STARS/g" | sed "s/{LANG_COLOR}/$LANG_COLOR/g")
+
+            echo "Сохраняем файл $CARD" > ".github/profile/cards/$repo-card.svg"
           done
 
-      - name: Commit & push
+      - name: Commit & Push cards
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add .github/profile/cards/
-          git diff --staged --quiet || git commit -m "Update repo cards" && git push
+          git diff --quiet && git diff --staged --quiet || (
+            git commit -m "Update repo cards [auto]"
+            git push
+          )
