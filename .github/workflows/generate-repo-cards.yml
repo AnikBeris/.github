@@ -1,13 +1,9 @@
 name: Generate Repo Cards
 
 on:
-  workflow_dispatch:           # можно запустить вручную
+  workflow_dispatch:
   schedule:
-    - cron: '0 */24 * * *'      # каждые 24 часа
-  push:
-    paths:
-      - '.github/workflows/generate-repo-cards.yml'
-      - 'repo-list.txt'          # опционально: список репо в отдельном файле
+    - cron: '0 */8 * * *'   # каждые 8 часов
 
 jobs:
   generate:
@@ -15,48 +11,30 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      # Устанавливаем нужный пакет (это форк, который умеет делать pin-карточки и сохранять в файл)
-      - name: Install card generator
-        run: npm install -g github-readme-stats-card
-
-      # Создаём папку для карточек
-      - name: Create cards directory
+      - name: Create cards folder
         run: mkdir -p .github/profile/cards
 
-      # ТВОЙ СПИСОК РЕПОЗИТОРИЕВ — просто перечисли тут
-      - name: Generate cards
+      - name: Download and save repo cards (pure curl, no npm bullshit)
         run: |
           repos=(
             "Auto-Role-Channel-Bot-Discord"
             "UE-Widget-Development"
+            # Добавляй сюда сколько угодно репозиториев
           )
 
           for repo in "${repos[@]}"; do
-            echo "Генерируем карточку для $repo..."
-            npx github-readme-stats-card \
-              --username AnikBeris \
-              --repo "$repo" \
-              --theme tokyonight \
-              --hide-border \
-              --border-radius 12 \
-              --icon-color 58A6FF \
-              --output ".github/profile/cards/$repo-card.svg"
+            echo "Скачиваем карточку для $repo"
+            curl -sL \
+              "https://github-readme-stats.vercel.app/api/pin/?username=AnikBeris&repo=$repo&theme=tokyonight&hide_border=true&border_radius=12&bg_color=1f1f28&title_color=7aa2f7&text_color=cdd6f4&icon_color=bb9af7" \
+              -o ".github/profile/cards/$repo.svg"
           done
 
-      # Коммитим и пушим только если что-то изменилось
-      - name: Commit & Push cards
+      - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .github/profile/cards/
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .github/profile/cards/*.svg
           git diff --quiet && git diff --staged --quiet || (
             git commit -m "Update repo cards [auto]" 
             git push
