@@ -1,0 +1,98 @@
+name: create-icons-template
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install jq
+        run: sudo apt-get update -y && sudo apt-get install -y jq
+
+      - name: Generate cards — правильная обрезка по словам и с ...
+        run: |
+          mkdir -p icons-template
+
+          repos=(
+              "Auto-Role-Channel-Bot-Discord"
+              "Auto-Discord-Cleaner"
+              "BotEpicGamesFreeAssets"
+              "Automatic-execution-of-Discord-tasks"
+
+              "automatic-calculation-of-HLOD-Unreal-Engine"
+              "Landscape-Unreal-Engine"
+              "CI-CD-Unreal-Engine-5"
+              "Unreal-Engine-Docker-Pixel-Streaming"
+              "UE5-zen-server-docker"
+              "UE5-Achievements-Steam"
+              "UE5-Epic-Games-Launcher"
+              "UE5-Templates"
+              "UE-Widget-Development"
+
+              "n8n-with-VPN-3x-ui---Xray---VLESS_in_Docker"
+              "n8n-docker"
+
+              "limitation-in-the-CPU-RAM-3X-UI"
+              "self-signed-certificate"
+
+              "DuckDNS-DSM-Synology"
+
+          )
+
+          declare -A colors=(
+            ["Python"]="#3572A5" ["JavaScript"]="#f1e05a" ["TypeScript"]="#2b7489"
+            ["Go"]="#00ADD8" ["Rust"]="#dea584" ["C++"]="#f34b7d" ["HTML"]="#e34c26"
+          )
+
+          for repo in "${repos[@]}"; do
+            json=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                        "https://api.github.com/repos/AnikBeris/$repo")
+
+            name=$(echo "$json" | jq -r '.name')
+            full_desc=$(echo "$json" | jq -r '.description // "No description"')
+            lang=$(echo "$json" | jq -r '.language // "Unknown"')
+            stars=$(echo "$json" | jq -r '.stargazers_count')
+            color=${colors[$lang]:-"#666666"}
+
+            desc=$(echo "$full_desc" | fold -s -w 60)
+
+            line1=$(echo "$desc" | sed -n '1p' | cut -c1-60)
+            line2=$(echo "$desc" | sed -n '2p' | cut -c1-60)
+            line3=$(echo "$desc" | sed -n '3p' | cut -c1-57)
+
+            if echo "$desc" | sed -n '4p' | grep -q .; then
+              line3="${line3}..."
+            fi
+
+            [ -z "$line1" ] && line1=" "
+            [ -z "$line2" ] && line2=" "
+            [ -z "$line3" ] && line3=" "
+
+            for var in line1 line2 line3; do
+              printf -v "$var" '%b' "${!var//&/&amp;}"
+              printf -v "$var" '%b' "${!var//</&lt;}"
+              printf -v "$var" '%b' "${!var//>/&gt;}"
+            done
+
+            cp .github/SVG-image-example/example.svg "icons-template/$repo.svg"
+
+            sed -i "s|{{REPO_NAME}}|$name|g"               "icons-template/$repo.svg"
+            sed -i "s|{{LINE_1}}|$line1|g"                 "icons-template/$repo.svg"
+            sed -i "s|{{LINE_2}}|$line2|g"                 "icons-template/$repo.svg"
+            sed -i "s|{{LINE_3}}|$line3|g"                 "icons-template/$repo.svg"
+            sed -i "s|{{LANGUAGE}}|$lang|g"                "icons-template/$repo.svg"
+            sed -i "s|{{STARS}}|$stars|g"                  "icons-template/$repo.svg"
+            sed -i "s|{{LANG_COLOR}}|$color|g"            "icons-template/$repo.svg"
+          done
+
+      - name: Commit & push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add icons-template/
+          git diff --staged --quiet || (git commit -m "Updating repository card icons based on template" && git push)
