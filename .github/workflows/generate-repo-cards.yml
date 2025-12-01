@@ -1,83 +1,119 @@
-name: Generate Repo Cards
+name: Generate Repo Cards (Custom SVG)
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *'  # каждые 24 часа
+    - cron: '0 */12 * * *'  # каждые 12 часов
 
 jobs:
   generate:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
+      - uses: actions/checkout@v4
 
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
 
-      - name: Create cards directory
+      - name: Create cards folder
         run: mkdir -p .github/profile/cards
 
-      - name: Generate repo cards
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_OWNER: ${{ github.repository_owner }}
+      - name: Generate custom repo cards
         run: |
-          REPOS=(
+          # ──────────────────────── ТВОЙ СПИСОК РЕПОЗИТОРИЕВ ────────────────────────
+          repos=(
             "Auto-Role-Channel-Bot-Discord"
             "UE-Widget-Development"
+            # добавляй сюда новые репо одной строкой
           )
+          # ───────────────────────────────────────────────────────────────────────
 
-          for REPO in "${REPOS[@]}"; do
-            DATA=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
-                      "https://api.github.com/repos/$GITHUB_OWNER/$REPO")
+          # Цвета языков (можно расширять)
+          declare -A lang_colors
+          lang_colors[Python]="#3572A5"
+          lang_colors[JavaScript]="#f1e05a"
+          lang_colors[TypeScript]="#2b7489"
+          lang_colors[Go]="#00ADD8"
+          lang_colors[Rust]="#dea584"
+          lang_colors[C++]="#f34b7d"
+          lang_colors[HTML]="#e34c26"
+          lang_colors[CSS]="#563d7c"
+          lang_colors[Shell]="#89e051"
 
-            NAME=$(echo "$DATA" | jq -r '.name')
-            DESCRIPTION=$(echo "$DATA" | jq -r '.description // ""')
-            LANGUAGE=$(echo "$DATA" | jq -r '.language // "Unknown"')
-            STARS=$(echo "$DATA" | jq -r '.stargazers_count')
+          for repo in "${repos[@]}"; do
+            echo "Обрабатываем: $repo"
 
-            if [ -z "$DESCRIPTION" ] || [ "$DESCRIPTION" = "null" ]; then
-              DESCRIPTION="No description"
-            fi
+            json=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                        "https://api.github.com/repos/AnikBeris/$repo")
 
-            case "$LANGUAGE" in
-              "JavaScript") LANG_COLOR="#f1e05a" ;;
-              "C++") LANG_COLOR="#f34b7d" ;;
-              "C#") LANG_COLOR="#178600" ;;
-              "Python") LANG_COLOR="#3572A5" ;;
-              "Unknown") LANG_COLOR="#666666" ;;
-              *) LANG_COLOR="#ffffff" ;;
-            esac
+            name=$(echo "$json" | jq -r '.name')
+            full_desc=$(echo "$json" | jq -r '.description // "No description provided."')
+            language=$(echo "$json" | jq -r '.language // "Unknown"')
+            stars=$(echo "$json" | jq -r '.stargazers_count')
 
-            OUTPUT=".github/profile/cards/${REPO}.svg"
+            color=${lang_colors[$language]:-"#666666"}
 
-            cat > "$OUTPUT" <<EOF
-<svg width="400" height="140" viewBox="0 0 400 140" xmlns="http://www.w3.org/2000/svg" style="border-radius:12px">
-  <rect width="400" height="140" fill="#0f0f0f" rx="12"/>
-  <text x="20" y="35" fill="#58a6ff" font-family="Segoe UI, sans-serif" font-size="20" font-weight="600">${NAME}</text>
-  <text x="20" y="65" fill="#8b949e" font-family="Segoe UI, sans-serif" font-size="14">${DESCRIPTION}</text>
-  <circle cx="25" cy="100" r="8" fill="${LANG_COLOR}"/>
-  <text x="40" y="105" fill="#ffffff" font-family="Segoe UI, sans-serif" font-size="14">${LANGUAGE}</text>
-  <text x="320" y="105" fill="#8b949e" font-family="Segoe UI, sans-serif" font-size="14" text-anchor="end">${STARS}</text>
-  <text x="305" y="105" fill="#8b949e" font-family="Segoe UI, sans-serif" font-size="14" text-anchor="end">⭐</text>
+            # ───── Обрезаем описание до 3 строк по ~70 символов ─────
+            desc_lines=$(echo "$full_desc" | fold -s -w 70 | head -n 3)
+            # Если меньше 3 строк — добавляем пустые, чтобы всегда было 3
+            while IFS= read -r line; do
+              lines+=("$line")
+            done <<< "$desc_lines"
+            while [ ${#lines[@]} -lt 3 ]; do
+              lines+=("")
+            done
+
+            tspan1=${lines[0]:-""}
+            tspan2=${lines[1]:-""}
+            tspan3=${lines[2]:-""}
+
+            # Экранируем XML-символы
+            tspan1=$(echo "$tspan1" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g')
+            tspan2=$(echo "$tspan2" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g')
+            tspan3=$(echo "$tspan3" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g')
+
+            # Генерируем финальный SVG
+            cat > ".github/profile/cards/$repo.svg" << EOF
+<svg width="400" height="150" viewBox="0 0 400 150" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
+  <style>
+    .header { font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif; fill: #70a5fd; }
+    .description { font: 400 13px 'Segoe UI', Ubuntu, Sans-Serif; fill: #38bdae; }
+    .gray { font: 400 12px 'Segoe UI', Ubuntu, Sans-Serif; fill: #38bdae; }
+    .icon { fill: #bf91f3; }
+  </style>
+
+  <rect x="0.5" y="0.5" rx="4.5" width="399" height="99%" fill="#1a1b27" stroke="#e4e2e2"/>
+
+  <g transform="translate(25, 35)">
+    <path class="icon" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z" transform="translate(0, -13)"/>
+    <text x="25" y="0" class="header">$name</text>
+  </g>
+
+  <g transform="translate(0, 55)">
+    <text class="description" x="25" y="-5">
+      <tspan dy="1.2em" x="25">$tspan1</tspan>
+      <tspan dy="1.2em" x="25">$tspan2</tspan>
+      <tspan dy="1.2em" x="25">$tspan3</tspan>
+    </text>
+
+    <g transform="translate(30, 75)">
+      <circle cx="0" cy="-5" r="6" fill="$color"/>
+      <text class="gray" x="15">$language</text>
+
+      <path class="icon" d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694z" transform="translate(62, -12)"/>
+      <text class="gray" x="82">$stars</text>
+    </g>
+  </g>
 </svg>
 EOF
-
-            echo "Generated: $OUTPUT"
+            echo "Готово: $repo.svg"
           done
 
-      - name: Commit & Push changes
+      - name: Commit & push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
           git add .github/profile/cards/
-
-          if ! git diff --quiet --cached; then
-            git commit -m "Update repo cards [auto]"
-            git push
-          else
-            echo "No changes. Skipping commit."
-          fi
+          git diff --staged --quiet || (git commit -m "Update repo cards [auto]" && git push)
