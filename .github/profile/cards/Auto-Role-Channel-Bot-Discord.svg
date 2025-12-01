@@ -17,9 +17,9 @@
   <!-- Description (всегда ровно 3 строки) -->
   <g transform="translate(0, 55)">
     <text class="description" x="25" y="-5">
-      <tspan dy="1.2em" x="25">A Discord bot that automatically creates roles and channels with prede</tspan>
-      <tspan dy="1.2em" x="25">fined permissions, making server setup quick and easy. Perfect for com</tspan>
-      <tspan dy="1.2em" x="25">munity management and structured role organization. 🚀🎮💻</tspan>
+      <tspan dy="1.2em" x="25">A Discord bot that automatically creates roles and channels </tspan>
+      <tspan dy="1.2em" x="25">with predefined permissions, making server setup quick and </tspan>
+      <tspan dy="1.2em" x="25">easy. Perfect for community management and structured rol...</tspan>
     </text>
 
     <!-- Language + stars -->
