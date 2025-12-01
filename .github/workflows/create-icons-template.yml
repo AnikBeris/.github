@@ -77,17 +77,18 @@ jobs:
               printf -v "$var" '%b' "${!var//&/&amp;}"
               printf -v "$var" '%b' "${!var//</&lt;}"
               printf -v "$var" '%b' "${!var//>/&gt;}"
+              printf -v "$var" '%b' "${!var//|/\\|}"
             done
 
             cp .github/SVG-image-example/example.svg "icons-template/$repo.svg"
 
-            sed -i "s|{{REPO_NAME}}|$name|g"               "icons-template/$repo.svg"
-            sed -i "s|{{LINE_1}}|$line1|g"                 "icons-template/$repo.svg"
-            sed -i "s|{{LINE_2}}|$line2|g"                 "icons-template/$repo.svg"
-            sed -i "s|{{LINE_3}}|$line3|g"                 "icons-template/$repo.svg"
-            sed -i "s|{{LANGUAGE}}|$lang|g"                "icons-template/$repo.svg"
-            sed -i "s|{{STARS}}|$stars|g"                  "icons-template/$repo.svg"
-            sed -i "s|{{LANG_COLOR}}|$color|g"            "icons-template/$repo.svg"
+            sed -i "s@{{REPO_NAME}}@$name@g"           "icons-template/$repo.svg"
+            sed -i "s@{{LINE_1}}@$line1@g"             "icons-template/$repo.svg"
+            sed -i "s@{{LINE_2}}@$line2@g"             "icons-template/$repo.svg"
+            sed -i "s@{{LINE_3}}@$line3@g"             "icons-template/$repo.svg"
+            sed -i "s@{{LANGUAGE}}@$lang@g"            "icons-template/$repo.svg"
+            sed -i "s@{{STARS}}@$stars@g"              "icons-template/$repo.svg"
+            sed -i "s@{{LANG_COLOR}}@$color@g"         "icons-template/$repo.svg"
           done
 
       - name: Commit & push
