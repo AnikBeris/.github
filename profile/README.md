@@ -138,3 +138,13 @@
   </tr>
 </table>
 
+---
+
+<table align="center">
+  <tr>
+    <td colspan="2"><h1 align="center"> 🤖 AI </h1></td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/AnikBeris/DuckDNS-DSM-Synology/tree/main"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/Edge-TTS-Text-to-Speech.svg"/></a></td>
+  </tr>
+</table>
