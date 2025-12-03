@@ -122,7 +122,7 @@
     <td colspan="2"><h1 align="center"> ⚙️ 3X-UI </h1></td>
   </tr>
   <tr>
-    <td><a href="https://github.com/AnikBeris/limitation-in-the-CPU-RAM-3X-UI/tree/main"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/limitation-in-the-CPU-RAM-3X-UI.svg"/></a></td>
+    <td><a href="https://github.com/AnikBeris/limitation-in-the-CPU-RAM-3X-UI"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/limitation-in-the-CPU-RAM-3X-UI.svg"/></a></td>
     <td><a href="https://github.com/AnikBeris/self-signed-certificate"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/self-signed-certificate.svg"/></a></td>
   </tr>
 </table>
@@ -134,7 +134,7 @@
     <td colspan="2"><h1 align="center"> 🖥️ DSM Synology </h1></td>
   </tr>
   <tr>
-    <td><a href="https://github.com/AnikBeris/DuckDNS-DSM-Synology/tree/main"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/DuckDNS-DSM-Synology.svg"/></a></td>
+    <td><a href="https://github.com/AnikBeris/DuckDNS-DSM-Synology"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/DuckDNS-DSM-Synology.svg"/></a></td>
   </tr>
 </table>
 
@@ -142,9 +142,9 @@
 
 <table align="center">
   <tr>
-    <td colspan="2"><h1 align="center"> 🤖 AI </h1></td>
+    <td colspan="2"><h1 align="center"> 🤖 AI integration </h1></td>
   </tr>
   <tr>
-    <td><a href="https://github.com/AnikBeris/DuckDNS-DSM-Synology/tree/main"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/Edge-TTS-Text-to-Speech.svg"/></a></td>
+    <td><a href="https://github.com/AnikBeris/Edge-TTS-Text-to-Speech"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/Edge-TTS-Text-to-Speech.svg"/></a></td>
   </tr>
 </table>
