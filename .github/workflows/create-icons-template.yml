@@ -37,6 +37,7 @@ jobs:
               "limitation-in-the-CPU-RAM-3X-UI"
               "self-signed-certificate"
               "DuckDNS-DSM-Synology"
+              "Edge-TTS-Text-to-Speech"
           )
 
           declare -A colors=(
