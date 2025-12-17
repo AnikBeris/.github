@@ -3,6 +3,9 @@ name: create-icons-template
 on:
   workflow_dispatch:
 
+  schedule:
+    - cron: '* */12 * * *'
+
 jobs:
   build:
     runs-on: ubuntu-latest
