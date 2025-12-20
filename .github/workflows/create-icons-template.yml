@@ -39,6 +39,7 @@ jobs:
               "n8n-docker"
               "limitation-in-the-CPU-RAM-3X-UI"
               "self-signed-certificate"
+              "vless-config-converter"
               "DuckDNS-DSM-Synology"
               "Edge-TTS-Text-to-Speech"
           )
