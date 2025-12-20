@@ -125,6 +125,9 @@
     <td><a href="https://github.com/AnikBeris/limitation-in-the-CPU-RAM-3X-UI"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/limitation-in-the-CPU-RAM-3X-UI.svg"/></a></td>
     <td><a href="https://github.com/AnikBeris/self-signed-certificate"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/self-signed-certificate.svg"/></a></td>
   </tr>
+  <tr>
+    <td><a href="https://github.com/AnikBeris/vless-config-converter"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/vless-config-converter.svg"/></a></td>
+  </tr>
 </table>
 
 ---
