@@ -100,6 +100,7 @@
   </tr>
   <tr>
     <td><a href="https://github.com/AnikBeris/UE-Widget-Development"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/UE-Widget-Development.svg"/></a></td>
+    <td><a href="https://github.com/AnikBeris/UE5-AdvancedSessions-Steam"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/UE5-AdvancedSessions-Steam.svg"/></a></td>
   </tr>
 </table>
 
