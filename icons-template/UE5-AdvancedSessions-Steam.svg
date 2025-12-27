@@ -17,8 +17,8 @@
   <!-- Description (всегда ровно 3 строки) -->
   <g transform="translate(0, 55)">
     <text class="description" x="25" y="-5">
-      <tspan dy="1.2em" x="25">No description</tspan>
-      <tspan dy="1.2em" x="25"> </tspan>
+      <tspan dy="1.2em" x="25">Useful Information on Developing a Project in Unreal Engine </tspan>
+      <tspan dy="1.2em" x="25">5 Using the AdvancedSessions-Steam Plugin</tspan>
       <tspan dy="1.2em" x="25"> </tspan>
     </text>
 
