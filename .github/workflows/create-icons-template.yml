@@ -36,6 +36,7 @@ jobs:
               "UE5-Templates"
               "UE5-AdvancedSessions-Steam"
               "UE-Widget-Development"
+              "UE-Shared-Derived-Data-Cache"
               "n8n-with-VPN-3x-ui---Xray---VLESS_in_Docker"
               "n8n-docker"
               "limitation-in-the-CPU-RAM-3X-UI"
