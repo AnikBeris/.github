@@ -137,6 +137,13 @@
       </a>
     </td>
   </tr>
+  <tr>
+    <td>
+      <a href="https://github.com/AnikBeris/UE-Shared-Derived-Data-Cache">
+        <img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/UE-Shared-Derived-Data-Cache.svg"/>
+      </a>
+    </td>
+  </tr>
 
   <!-- Steam and Multiplayer -->
   <tr>
