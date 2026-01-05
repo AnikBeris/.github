@@ -77,33 +77,108 @@
 </table>
 
 ---
+---
 
 <table align="center">
+
+  <!-- Unreal Engine -->
   <tr>
-    <td colspan="2"><h1 align="center"> 🎮 Unreal Engine </h21></td>
+    <td colspan="2">
+      <h1 align="center">🎮 Unreal Engine</h1>
+    </td>
+  </tr>
+
+  <!-- Optimization and World -->
+  <tr>
+    <td colspan="2">
+      <h2 align="center"> 🌍 Optimization and World</h2>
+    </td>
   </tr>
   <tr>
-    <td><a href="https://github.com/AnikBeris/automatic-calculation-of-HLOD-Unreal-Engine"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/automatic-calculation-of-HLOD-Unreal-Engine.svg"/></a></td>
-    <td><a href="https://github.com/AnikBeris/Landscape-Unreal-Engine"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/Landscape-Unreal-Engine.svg"/></a></td>
+    <td>
+      <a href="https://github.com/AnikBeris/automatic-calculation-of-HLOD-Unreal-Engine">
+        <img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/automatic-calculation-of-HLOD-Unreal-Engine.svg"/>
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/AnikBeris/Landscape-Unreal-Engine">
+        <img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/Landscape-Unreal-Engine.svg"/>
+      </a>
+    </td>
+  </tr>
+
+  <!-- CI/CD and Infrastructure -->
+  <tr>
+    <td colspan="2">
+      <h2 align="center"> ⚙️ CI/CD and Infrastructure</h2>
+    </td>
   </tr>
   <tr>
-    <td><a href="https://github.com/AnikBeris/CI-CD-Unreal-Engine-5"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/CI-CD-Unreal-Engine-5.svg"/></a></td>
-    <td><a href="https://github.com/AnikBeris/Unreal-Engine-Docker-Pixel-Streaming"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/Unreal-Engine-Docker-Pixel-Streaming.svg"/></a></td>
+    <td>
+      <a href="https://github.com/AnikBeris/CI-CD-Unreal-Engine-5">
+        <img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/CI-CD-Unreal-Engine-5.svg"/>
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/AnikBeris/Unreal-Engine-Docker-Pixel-Streaming">
+        <img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/Unreal-Engine-Docker-Pixel-Streaming.svg"/>
+      </a>
+    </td>
   </tr>
   <tr>
-    <td><a href="https://github.com/AnikBeris/UE5-zen-server-docker"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/UE5-zen-server-docker.svg"/></a></td>
-    <td><a href="https://github.com/AnikBeris/UE5-Achievements-Steam"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/UE5-Achievements-Steam.svg"/></a></td>
+    <td>
+      <a href="https://github.com/AnikBeris/UE5-zen-server-docker">
+        <img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/UE5-zen-server-docker.svg"/>
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/AnikBeris/UE5-Epic-Games-Launcher">
+        <img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/UE5-Epic-Games-Launcher.svg"/>
+      </a>
+    </td>
+  </tr>
+
+  <!-- Steam and Multiplayer -->
+  <tr>
+    <td colspan="2">
+      <h2 align="center"> 🎯 Steam and Multiplayer</h2>
+    </td>
   </tr>
   <tr>
-    <td><a href="https://github.com/AnikBeris/UE5-Epic-Games-Launcher"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/UE5-Epic-Games-Launcher.svg"/></a></td>
-    <td><a href="https://github.com/AnikBeris/UE5-Templates"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/UE5-Templates.svg"/></a></td>
+    <td>
+      <a href="https://github.com/AnikBeris/UE5-Achievements-Steam">
+        <img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/UE5-Achievements-Steam.svg"/>
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/AnikBeris/UE5-AdvancedSessions-Steam">
+        <img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/UE5-AdvancedSessions-Steam.svg"/>
+      </a>
+    </td>
+  </tr>
+
+  <!-- UI and Templates -->
+  <tr>
+    <td colspan="2">
+      <h2 align="center"> 🧩 UI and Templates</h2>
+    </td>
   </tr>
   <tr>
-    <td><a href="https://github.com/AnikBeris/UE-Widget-Development"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/UE-Widget-Development.svg"/></a></td>
-    <td><a href="https://github.com/AnikBeris/UE5-AdvancedSessions-Steam"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/UE5-AdvancedSessions-Steam.svg"/></a></td>
+    <td>
+      <a href="https://github.com/AnikBeris/UE-Widget-Development">
+        <img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/UE-Widget-Development.svg"/>
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/AnikBeris/UE5-Templates">
+        <img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/UE5-Templates.svg"/>
+      </a>
+    </td>
   </tr>
+
 </table>
 
+---
 ---
 
 <table align="center">
@@ -116,6 +191,7 @@
   </tr>
 </table>
 
+---
 ---
 
 <table align="center">
