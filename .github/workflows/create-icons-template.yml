@@ -44,6 +44,8 @@ jobs:
               "vless-config-converter"
               "DuckDNS-DSM-Synology"
               "Edge-TTS-Text-to-Speech"
+              "marzban-vless-config"
+              "marzban-Install"
           )
 
           declare -A colors=(
