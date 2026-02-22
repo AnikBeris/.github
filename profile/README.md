@@ -183,7 +183,6 @@
     </td>
   </tr>
 
-</table>
 
 ---
 ---
@@ -215,6 +214,19 @@
 </table>
 
 ---
+
+<table align="center">
+  <tr>
+    <td colspan="2"><h1 align="center"> ⚙️ MARZBAN </h1></td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/AnikBeris/marzban-Install"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/marzban-Install.svg"/></a></td>
+    <td><a href="https://github.com/AnikBeris/marzban-vless-config"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/marzban-vless-config.svg"/></a></td>
+  </tr>
+</table>
+
+---
+
 
 <table align="center">
   <tr>
