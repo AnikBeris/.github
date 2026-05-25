@@ -30,6 +30,7 @@ jobs:
               "Landscape-Unreal-Engine"
               "CI-CD-Unreal-Engine-5"
               "Unreal-Engine-Docker-Pixel-Streaming"
+              "fay-ue5"
               "UE5-zen-server-docker"
               "UE5-Achievements-Steam"
               "UE5-Epic-Games-Launcher"
