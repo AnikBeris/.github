@@ -17,8 +17,8 @@
   <!-- Description (всегда ровно 3 строки) -->
   <g transform="translate(0, 55)">
     <text class="description" x="25" y="-5">
-      <tspan dy="1.2em" x="25">Can be integrated with Fay digital human UE5 projects.</tspan>
-      <tspan dy="1.2em" x="25"> </tspan>
+      <tspan dy="1.2em" x="25">Can be integrated with Fay digital  ​‌metahuman UE5 </tspan>
+      <tspan dy="1.2em" x="25">projects.</tspan>
       <tspan dy="1.2em" x="25"> </tspan>
     </text>
 
