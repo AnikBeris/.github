@@ -52,9 +52,10 @@
     <td><a href="https://github.com/AnikBeris"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/profile-summary-card-output/codeSTACKr/2-most-commit-language.svg"/></a></td>
   </tr>
   <tr>
-    <td colspan="2"><p align="center"><a href="https://github.com/AnikBeris">
-  <img src="https://github-profile-trophy.vercel.app/?username=AnikBeris&theme=onedark&column=4&margin-w=15&margin-h=15"/>
-  </a></td>
+    <td colspan="2"  align="center"><picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-fast.vercel.app/api/top-langs/?username=AnikBeris&theme=radical">
+      <img alt="Top Langs" src="https://github-readme-stats-fast.vercel.app/api/top-langs/?username=AnikBeris&theme=default">
+    </picture></td>
   </tr>
 </table>
 
