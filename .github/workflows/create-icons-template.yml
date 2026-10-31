@@ -82,40 +82,52 @@ jobs:
             ["VHDL"]="rgba(173, 178, 203, 1)"
           )
 
-
           for repo in "${repos[@]}"; do
             json=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
                         "https://api.github.com/repos/$repo")
-
+          
             name=$(echo "$json" | jq -r '.name')
             full_desc=$(echo "$json" | jq -r '.description // "No description"')
             lang=$(echo "$json" | jq -r '.language // "Unknown"')
             stars=$(echo "$json" | jq -r '.stargazers_count')
             color=${colors[$lang]:-"#666666"}
-
+          
             desc=$(echo "$full_desc" | fold -s -w 60)
-
+          
             line1=$(echo "$desc" | sed -n '1p' | cut -c1-60)
             line2=$(echo "$desc" | sed -n '2p' | cut -c1-60)
             line3=$(echo "$desc" | sed -n '3p' | cut -c1-57)
-
+          
             if echo "$desc" | sed -n '4p' | grep -q .; then
               line3="${line3}..."
             fi
-
+          
             [ -z "$line1" ] && line1=" "
             [ -z "$line2" ] && line2=" "
             [ -z "$line3" ] && line3=" "
-
-            # Улучшенное экранирование — добавляем экранирование для всех специальных символов
+          
             for var in name line1 line2 line3 lang stars color; do
-              printf -v "$var" '%b' "${!var//&/&amp;}"  # &
-              printf -v "$var" '%b' "${!var//</&lt;}"    # <
-              printf -v "$var" '%b' "${!var//>/&gt;}"    # >
-              printf -v "$var" '%b' "${!var//|/\\|}"     # |
-              printf -v "$var" '%b' "${!var//\\/\\\\}"   # \
-              printf -v "$var" '%b' "${!var//@/\\@}"     # @
+              printf -v "$var" '%b' "${!var//&/&amp;}"
+              printf -v "$var" '%b' "${!var//</&lt;}"
+              printf -v "$var" '%b' "${!var//>/&gt;}"
+              printf -v "$var" '%b' "${!var//|/\\|}"
+              printf -v "$var" '%b' "${!var//\\/\\\\}"
+              printf -v "$var" '%b' "${!var//@/\\@}"
             done
+          
+            # имя файла: слэш заменяем на дефис
+            out_file="icons-template/${repo//\//-}.svg"
+          
+            cp .github/SVG-image-example/example.svg "$out_file"
+          
+            sed -i "s@{{REPO_NAME}}@$name@g"     "$out_file"
+            sed -i "s@{{LINE_1}}@$line1@g"       "$out_file"
+            sed -i "s@{{LINE_2}}@$line2@g"       "$out_file"
+            sed -i "s@{{LINE_3}}@$line3@g"       "$out_file"
+            sed -i "s@{{LANGUAGE}}@$lang@g"      "$out_file"
+            sed -i "s@{{STARS}}@$stars@g"        "$out_file"
+            sed -i "s@{{LANG_COLOR}}@$color@g"   "$out_file"
+          done
 
             # Копируем шаблон
             cp .github/SVG-image-example/example.svg "icons-template/$repo.svg"
