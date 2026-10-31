@@ -243,5 +243,6 @@
   </tr>
   <tr>
     <td><a href="https://github.com/AnikBeris/Edge-TTS-Text-to-Speech"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/Edge-TTS-Text-to-Speech.svg"/></a></td>
+    <td><a href="https://github.com/AnikBeris/llama-server-gui"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/llama-server-gui.svg"/></a></td>
   </tr>
 </table>
