@@ -115,8 +115,8 @@ jobs:
               printf -v "$var" '%b' "${!var//@/\\@}"
             done
           
-            # имя файла: слэш заменяем на дефис
-            out_file="icons-template/${repo//\//-}.svg"
+            # имя файла = имя репозитория без владельца: Auto-Discord-Cleaner.svg
+            out_file="icons-template/${repo##*/}.svg"
           
             cp .github/SVG-image-example/example.svg "$out_file"
           
@@ -128,20 +128,6 @@ jobs:
             sed -i "s@{{STARS}}@$stars@g"        "$out_file"
             sed -i "s@{{LANG_COLOR}}@$color@g"   "$out_file"
           done
-
-            # Копируем шаблон
-            cp .github/SVG-image-example/example.svg "icons-template/$repo.svg"
-
-            # Безопасная замена с использованием временного файла
-            sed -i "s@{{REPO_NAME}}@$name@g"           "icons-template/$repo.svg"
-            sed -i "s@{{LINE_1}}@$line1@g"             "icons-template/$repo.svg"
-            sed -i "s@{{LINE_2}}@$line2@g"             "icons-template/$repo.svg"
-            sed -i "s@{{LINE_3}}@$line3@g"             "icons-template/$repo.svg"
-            sed -i "s@{{LANGUAGE}}@$lang@g"            "icons-template/$repo.svg"
-            sed -i "s@{{STARS}}@$stars@g"              "icons-template/$repo.svg"
-            sed -i "s@{{LANG_COLOR}}@$color@g"         "icons-template/$repo.svg"
-          done
-
       - name: Commit & push
         run: |
           git config user.name "github-actions[bot]"
