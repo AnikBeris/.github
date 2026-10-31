@@ -46,6 +46,7 @@ jobs:
               "DuckDNS-DSM-Synology"
               "Edge-TTS-Text-to-Speech"
               "llama-server-gui"
+              "zcode-ru-localization"
               "marzban-vless-config"
               "marzban-Install"
           )
