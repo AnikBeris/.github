@@ -22,33 +22,33 @@ jobs:
           mkdir -p icons-template
 
           repos=(
-              "Auto-Role-Channel-Bot-Discord"
-              "Auto-Discord-Cleaner"
-              "BotEpicGamesFreeAssets"
-              "Automatic-execution-of-Discord-tasks"
-              "automatic-calculation-of-HLOD-Unreal-Engine"
-              "Landscape-Unreal-Engine"
-              "CI-CD-Unreal-Engine-5"
-              "Unreal-Engine-Docker-Pixel-Streaming"
-              "fay-ue5"
-              "UE5-zen-server-docker"
-              "UE5-Achievements-Steam"
-              "UE5-Epic-Games-Launcher"
-              "UE5-Templates"
-              "UE5-AdvancedSessions-Steam"
-              "UE-Widget-Development"
-              "UE-Shared-Derived-Data-Cache"
-              "n8n-with-VPN-3x-ui---Xray---VLESS_in_Docker"
-              "n8n-docker"
-              "limitation-in-the-CPU-RAM-3X-UI"
-              "self-signed-certificate"
-              "vless-config-converter"
-              "DuckDNS-DSM-Synology"
-              "Edge-TTS-Text-to-Speech"
-              "llama-server-gui"
-              "zcode-ru-localization"
-              "marzban-vless-config"
-              "marzban-Install"
+              "AnikBeris/Auto-Role-Channel-Bot-Discord"
+              "AnikBeris/Auto-Discord-Cleaner"
+              "AnikBeris/BotEpicGamesFreeAssets"
+              "AnikBeris/Automatic-execution-of-Discord-tasks"
+              "AnikBeris/automatic-calculation-of-HLOD-Unreal-Engine"
+              "AnikBeris/Landscape-Unreal-Engine"
+              "AnikBeris/CI-CD-Unreal-Engine-5"
+              "AnikBeris/Unreal-Engine-Docker-Pixel-Streaming"
+              "AnikBeris/fay-ue5"
+              "AnikBeris/UE5-zen-server-docker"
+              "AnikBeris/UE5-Achievements-Steam"
+              "AnikBeris/UE5-Epic-Games-Launcher"
+              "AnikBeris/UE5-Templates"
+              "AnikBeris/UE5-AdvancedSessions-Steam"
+              "AnikBeris/UE-Widget-Development"
+              "AnikBeris/UE-Shared-Derived-Data-Cache"
+              "AnikBeris/n8n-with-VPN-3x-ui---Xray---VLESS_in_Docker"
+              "AnikBeris/n8n-docker"
+              "AnikBeris/limitation-in-the-CPU-RAM-3X-UI"
+              "AnikBeris/self-signed-certificate"
+              "AnikBeris/vless-config-converter"
+              "AnikBeris/DuckDNS-DSM-Synology"
+              "AnikBeris/Edge-TTS-Text-to-Speech"
+              "AnikBeris/llama-server-gui"
+              "AnikBeris/marzban-vless-config"
+              "AnikBeris/marzban-Install"
+              "AnikLabs/zcode-ru-localization"
           )
 
           declare -A colors=(
@@ -85,7 +85,7 @@ jobs:
 
           for repo in "${repos[@]}"; do
             json=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-                        "https://api.github.com/repos/AnikBeris/$repo")
+                        "https://api.github.com/repos/$repo")
 
             name=$(echo "$json" | jq -r '.name')
             full_desc=$(echo "$json" | jq -r '.description // "No description"')
