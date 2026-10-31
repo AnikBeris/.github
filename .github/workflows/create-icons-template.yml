@@ -45,6 +45,7 @@ jobs:
               "vless-config-converter"
               "DuckDNS-DSM-Synology"
               "Edge-TTS-Text-to-Speech"
+              "llama-server-gui"
               "marzban-vless-config"
               "marzban-Install"
           )
