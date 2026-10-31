@@ -65,6 +65,73 @@
 
 <table align="center">
   <tr>
+    <td colspan="2"><h1 align="center"> 🖥️ DSM Synology </h1></td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/AnikBeris/DuckDNS-DSM-Synology"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/DuckDNS-DSM-Synology.svg"/></a></td>
+  </tr>
+</table>
+
+---
+
+<table align="center">
+  <tr>
+    <td colspan="2"><h1 align="center"> 🤖 AI integration </h1></td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/AnikBeris/Edge-TTS-Text-to-Speech"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/Edge-TTS-Text-to-Speech.svg"/></a></td>
+    <td><a href="https://github.com/AnikBeris/llama-server-gui"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/llama-server-gui.svg"/></a></td>
+  </tr>
+    <tr>
+    <td><a href="https://github.com/AnikLabs/zcode-ru-localization"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/zcode-ru-localization.svg"/></a></td>
+  </tr>
+</table>
+
+---
+
+<table align="center">
+  <tr>
+    <td colspan="2"><h1 align="center"> 🔄 n8n </h1></td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/AnikBeris/n8n-with-VPN-3x-ui---Xray---VLESS_in_Docker"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/n8n-with-VPN-3x-ui---Xray---VLESS_in_Docker.svg"/></a></td>
+    <td><a href="https://github.com/AnikBeris/n8n-docker"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/n8n-docker.svg"/></a></td>
+  </tr>
+</table>
+
+---
+---
+
+<table align="center">
+  <tr>
+    <td colspan="2"><h1 align="center"> ⚙️ 3X-UI </h1></td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/AnikBeris/limitation-in-the-CPU-RAM-3X-UI"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/limitation-in-the-CPU-RAM-3X-UI.svg"/></a></td>
+    <td><a href="https://github.com/AnikBeris/self-signed-certificate"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/self-signed-certificate.svg"/></a></td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/AnikBeris/vless-config-converter"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/vless-config-converter.svg"/></a></td>
+  </tr>
+</table>
+
+---
+
+<table align="center">
+  <tr>
+    <td colspan="2"><h1 align="center"> ⚙️ MARZBAN </h1></td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/AnikBeris/marzban-Install"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/marzban-Install.svg"/></a></td>
+    <td><a href="https://github.com/AnikBeris/marzban-vless-config"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/marzban-vless-config.svg"/></a></td>
+  </tr>
+</table>
+
+---
+---
+
+<table align="center">
+  <tr>
     <td colspan="2"><h1 align="center"> 💬 Discord </h1></td>
   </tr>
   <tr>
@@ -180,68 +247,3 @@
       </a>
     </td>
   </tr>
-
-
----
----
-
-<table align="center">
-  <tr>
-    <td colspan="2"><h1 align="center"> 🔄 n8n </h1></td>
-  </tr>
-  <tr>
-    <td><a href="https://github.com/AnikBeris/n8n-with-VPN-3x-ui---Xray---VLESS_in_Docker"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/n8n-with-VPN-3x-ui---Xray---VLESS_in_Docker.svg"/></a></td>
-    <td><a href="https://github.com/AnikBeris/n8n-docker"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/n8n-docker.svg"/></a></td>
-  </tr>
-</table>
-
----
----
-
-<table align="center">
-  <tr>
-    <td colspan="2"><h1 align="center"> ⚙️ 3X-UI </h1></td>
-  </tr>
-  <tr>
-    <td><a href="https://github.com/AnikBeris/limitation-in-the-CPU-RAM-3X-UI"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/limitation-in-the-CPU-RAM-3X-UI.svg"/></a></td>
-    <td><a href="https://github.com/AnikBeris/self-signed-certificate"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/self-signed-certificate.svg"/></a></td>
-  </tr>
-  <tr>
-    <td><a href="https://github.com/AnikBeris/vless-config-converter"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/vless-config-converter.svg"/></a></td>
-  </tr>
-</table>
-
----
-
-<table align="center">
-  <tr>
-    <td colspan="2"><h1 align="center"> ⚙️ MARZBAN </h1></td>
-  </tr>
-  <tr>
-    <td><a href="https://github.com/AnikBeris/marzban-Install"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/marzban-Install.svg"/></a></td>
-    <td><a href="https://github.com/AnikBeris/marzban-vless-config"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/marzban-vless-config.svg"/></a></td>
-  </tr>
-</table>
-
----
-
-
-<table align="center">
-  <tr>
-    <td colspan="2"><h1 align="center"> 🖥️ DSM Synology </h1></td>
-  </tr>
-  <tr>
-    <td><a href="https://github.com/AnikBeris/DuckDNS-DSM-Synology"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/DuckDNS-DSM-Synology.svg"/></a></td>
-  </tr>
-</table>
-
----
-
-<table align="center">
-  <tr>
-    <td colspan="2"><h1 align="center"> 🤖 AI integration </h1></td>
-  </tr>
-  <tr>
-    <td><a href="https://github.com/AnikBeris/Edge-TTS-Text-to-Speech"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/Edge-TTS-Text-to-Speech.svg"/></a></td>
-  </tr>
-</table>
