@@ -17,9 +17,9 @@
   <!-- Description (всегда ровно 3 строки) -->
   <g transform="translate(0, 55)">
     <text class="description" x="25" y="-5">
-      <tspan dy="1.2em" x="25">🐳 A complete technical guide to deploying and </tspan>
-      <tspan dy="1.2em" x="25">configuring n8n in a 🐳 Docker container with all network </tspan>
-      <tspan dy="1.2em" x="25">traffic routed through VPN (Xray/VLESS), managed via 3x-u...</tspan>
+      <tspan dy="1.2em" x="25">🐳 A complete technical guide to deploying and configuring </tspan>
+      <tspan dy="1.2em" x="25">n8n in a 🐳 Docker container with all network traffic </tspan>
+      <tspan dy="1.2em" x="25">routed through VPN (Xray/VLESS), managed via 3x-ui and ...</tspan>
     </text>
 
     <!-- Language + stars -->
