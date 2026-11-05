@@ -48,7 +48,9 @@ jobs:
               "AnikBeris/llama-server-gui"
               "AnikBeris/marzban-vless-config"
               "AnikBeris/marzban-Install"
+              "AnikBeris/Qoder-ru-localization"
               "AnikLabs/zcode-ru-localization"
+
           )
 
           declare -A colors=(
