@@ -84,6 +84,7 @@
   </tr>
     <tr>
     <td><a href="https://github.com/AnikLabs/zcode-ru-localization"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/zcode-ru-localization.svg"/></a></td>
+    <td><a href="https://github.com/AnikBeris/Qoder-ru-localization"><img src="https://raw.githubusercontent.com/AnikBeris/.github/main/icons-template/Qoder-ru-localization.svg"/></a></td>
   </tr>
 </table>
 
